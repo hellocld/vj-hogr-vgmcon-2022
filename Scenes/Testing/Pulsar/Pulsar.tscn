@@ -1,0 +1,144 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Scenes/Testing/Pulsar/Pulsar.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Testing/Pulsar/Label.gd" type="Script" id=2]
+
+[sub_resource type="CubeMesh" id=1]
+
+[sub_resource type="Animation" id=2]
+resource_name = "New Anim"
+tracks/0/type = "transform"
+tracks/0/path = NodePath("MeshInstance")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = PoolRealArray( 0, 1, 0, 0, 0, 0, 0, 0, 1, 0.1, 2, 2, 0.3, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "New Anim"
+tracks/0/type = "transform"
+tracks/0/path = NodePath("MeshInstance")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = PoolRealArray( 0, 1, 0, 0, 0, 0, 0, 0, 1, 0.1, 2, 2, 0.3, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1 )
+
+[sub_resource type="Animation" id=4]
+resource_name = "New Anim"
+tracks/0/type = "transform"
+tracks/0/path = NodePath("MeshInstance")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = PoolRealArray( 0, 1, 0, 0, 0, 0, 0, 0, 1, 0.1, 2, 2, 0.3, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1 )
+
+[sub_resource type="Animation" id=5]
+resource_name = "New Anim"
+tracks/0/type = "transform"
+tracks/0/path = NodePath("MeshInstance")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = PoolRealArray( 0, 1, 0, 0, 0, 0, 0, 0, 1, 0.1, 2, 2, 0.3, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1 )
+
+[sub_resource type="Animation" id=6]
+resource_name = "New Anim"
+tracks/0/type = "transform"
+tracks/0/path = NodePath("MeshInstance")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = PoolRealArray( 0, 1, 0, 0, 0, 0, 0, 0, 1, 0.1, 2, 2, 0.3, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1 )
+
+[node name="Spatial" type="Spatial"]
+
+[node name="Pulsar" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0 )
+script = ExtResource( 1 )
+trigger_val = 0.5
+
+[node name="MeshInstance" type="MeshInstance" parent="Pulsar"]
+transform = Transform( 0.1, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0 )
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Pulsar"]
+"anims/New Anim" = SubResource( 2 )
+
+[node name="Pulsar2" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0 )
+script = ExtResource( 1 )
+trigger_val = 0.5
+index = 1
+
+[node name="MeshInstance" type="MeshInstance" parent="Pulsar2"]
+transform = Transform( 0.1, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0 )
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Pulsar2"]
+"anims/New Anim" = SubResource( 3 )
+
+[node name="Pulsar3" type="Spatial" parent="."]
+script = ExtResource( 1 )
+trigger_val = 0.5
+index = 2
+
+[node name="MeshInstance" type="MeshInstance" parent="Pulsar3"]
+transform = Transform( 0.1, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0 )
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Pulsar3"]
+"anims/New Anim" = SubResource( 4 )
+
+[node name="Pulsar4" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0 )
+script = ExtResource( 1 )
+trigger_val = 0.5
+index = 3
+
+[node name="MeshInstance" type="MeshInstance" parent="Pulsar4"]
+transform = Transform( 0.1, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0 )
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Pulsar4"]
+"anims/New Anim" = SubResource( 5 )
+
+[node name="Pulsar5" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0 )
+script = ExtResource( 1 )
+trigger_val = 0.5
+index = 4
+
+[node name="MeshInstance" type="MeshInstance" parent="Pulsar5"]
+transform = Transform( 0.1, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0 )
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Pulsar5"]
+"anims/New Anim" = SubResource( 6 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.964774, 0.263082, 0, -0.263082, 0.964774, 0, 1.17225, 5.21714 )
+
+[node name="Control" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Control"]
+margin_right = 40.0
+margin_bottom = 14.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
