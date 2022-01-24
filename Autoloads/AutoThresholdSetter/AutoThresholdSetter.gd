@@ -17,20 +17,18 @@ func _process(delta: float) -> void:
 			_sample_set[i] += SpectrumAnalyzer.get_sample(i)
 		_num_samples += 1;
 
-"""
-Initializes the sample set and gets things ready for collecting threshold
-samples.
-"""
+
+# Initializes the sample set and gets things ready for collecting threshold
+# samples.
 func _init_sample_set():
 	_sample_set.clear()
 	for i in SpectrumAnalyzer.sample_size:
 		_sample_set.append(0)
 	_num_samples = 0
 
-"""
-Sets the new threshold values by averaging all the values acquired via
-_init_sample_set().
-"""
+
+# Sets the new threshold values by averaging all the values acquired via
+# _init_sample_set().
 func _set_new_thresholds():
 	for i in SpectrumAnalyzer.sample_size:
 		_sample_set[i] /= _num_samples

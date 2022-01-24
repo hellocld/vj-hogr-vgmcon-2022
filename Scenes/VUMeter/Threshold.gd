@@ -11,10 +11,9 @@ func _ready() -> void:
 	SpectrumAnalyzer.connect("sample_threshold_changed", self, "_update_bar_pos")
 	SpectrumAnalyzer.connect("sample_triggered", self, "_on_sample_triggered")
 
-"""
-Update the position of the threshold bar based on the SpectrumAnalyzer's 
-threshold for the given index.
-"""
+
+# Update the position of the threshold bar based on the SpectrumAnalyzer's 
+# threshold for the given index.
 func _update_bar_pos(idx, val) -> void:
 	if idx == index:
 		_bar.margin_top = self.rect_size.y * -val

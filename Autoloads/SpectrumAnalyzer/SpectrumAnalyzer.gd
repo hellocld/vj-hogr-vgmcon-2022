@@ -33,9 +33,8 @@ func _process(_delta) -> void:
 			emit_signal("sample_detriggered", i)
 			sample_triggered[i] = false
 
-"""
-Acquires all samples from the audio bus and returns the normalized values
-"""
+
+# Acquires all samples from the audio bus and returns the normalized values
 func _get_samples() -> Array:
 	var set:Array
 	var freq_subrange = _freq_range / (sample_size + 1)
@@ -45,19 +44,17 @@ func _get_samples() -> Array:
 		set.append(vol)
 	return set
 
-"""
-Returns the current value for the sample at the provided index
-"""
+
+# Returns the current value for the sample at the provided index
 func get_sample(idx:int) -> float:
 	if idx < samples.size():
 		if samples[idx] != null:
 			return samples[idx]
 	return 0.0
 
-"""
-Sets the threshold value at which the 'sample_triggered' signal should be 
-emitted for the given sample index
-"""
+
+# Sets the threshold value at which the 'sample_triggered' signal should be 
+# emitted for the given sample index
 func set_sample_trigger_threshold(idx:int, val:float) -> void:
 	sample_trigger_thresholds[idx] = clamp(val, 0, 1)
 	emit_signal("sample_threshold_changed", idx, val)
