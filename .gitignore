@@ -8,3 +8,5 @@ data_*/
 *.ods#
 
 [Bb]uilds/
+
+logs/
