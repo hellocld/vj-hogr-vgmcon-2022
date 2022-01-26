@@ -27,4 +27,8 @@ util_autothreshset={
 
 [rendering]
 
+quality/filters/sharpen_intensity=0.5
+quality/shadows/filter_mode=0
+quality/filters/anisotropic_filter_level=2
+quality/filters/use_fxaa=true
 environment/default_environment="res://DefaultEnvironment.tres"
