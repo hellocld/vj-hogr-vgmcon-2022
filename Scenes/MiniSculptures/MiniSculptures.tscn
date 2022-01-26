@@ -1,10 +1,9 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Models/Backdrop/Backdrop_Plane.mesh" type="ArrayMesh" id=1]
 [ext_resource path="res://Models/MiniSculptures/VectormanItem/VectormanItem.gltf" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/MiniSculptures/vs_VectormanItem_Base.tres" type="Shader" id=3]
 [ext_resource path="res://Scenes/MiniSculptures/VectormanItem.gd" type="Script" id=4]
-[ext_resource path="res://Scenes/VUMeter/VUMeter.tscn" type="PackedScene" id=5]
 
 [sub_resource type="Environment" id=8]
 ambient_light_color = Color( 0.266667, 0.266667, 0.266667, 1 )
@@ -128,8 +127,6 @@ material/0 = SubResource( 6 )
 [node name="DirectionalLight" type="DirectionalLight" parent="Spatial"]
 transform = Transform( 0.933608, 0.0831548, -0.348513, 0.233864, 0.595494, 0.768566, 0.271448, -0.799044, 0.536511, 0, 0, 0 )
 shadow_enabled = true
-
-[node name="VUMeter" parent="." instance=ExtResource( 5 )]
 
 [node name="VectormanItem" parent="." instance=ExtResource( 2 )]
 script = ExtResource( 4 )
