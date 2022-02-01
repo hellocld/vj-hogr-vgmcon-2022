@@ -8,6 +8,10 @@
 
 config_version=4
 
+[application]
+
+config/name="VJ.HOGR.VGMCON.2022"
+
 [audio]
 
 enable_audio_input=true
