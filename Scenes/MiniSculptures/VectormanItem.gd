@@ -4,7 +4,9 @@ export(int) var base_static_idx := 3
 
 onready var _base := $Base
 onready var _orb := $Orb
-onready var _spikes := $Orb/Spikes
+onready var _spikes1 := $Orb/Spikes001
+onready var _spikes2 := $Orb/Spikes002
+onready var _spikes3 := $Orb/Spikes003
 
 var _base_mat
 
@@ -39,4 +41,6 @@ func _update_orb() -> void:
 
 
 func _update_spikes() -> void:
-	_spikes.scale = Vector3.ONE * (SpectrumAnalyzer.get_sample(6) + 0.8)
+	_spikes1.scale = Vector3.ONE * (SpectrumAnalyzer.get_sample(6) + 0.8)
+	_spikes2.scale = Vector3.ONE * (SpectrumAnalyzer.get_sample(6) + 0.8)
+	_spikes3.scale = Vector3.ONE * (SpectrumAnalyzer.get_sample(6) + 0.8)
