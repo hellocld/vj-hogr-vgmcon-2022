@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Models/MiniSculptures/Elements/Elements_Icosphere001.mesh" type="ArrayMesh" id=1]
+[ext_resource path="res://Scenes/MiniSculptures/Bit/Bit.gd" type="Script" id=2]
+
+[sub_resource type="Curve" id=1]
+_data = [ Vector2( 0, 0 ), 0.0, 1.4, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[node name="Bit" type="Spatial"]
+script = ExtResource( 2 )
+curve = SubResource( 1 )
+
+[node name="Bit" type="MeshInstance" parent="."]
+mesh = ExtResource( 1 )
+skeleton = NodePath("../..")
+blend_shapes/Key = 0.5
+material/0 = null
