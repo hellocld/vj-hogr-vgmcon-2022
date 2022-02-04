@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Models/MiniSculptures/Elements/Elements_EquaBand.mesh" type="ArrayMesh" id=1]
+[ext_resource path="res://Scenes/MiniSculptures/EquaBand/EquaBand.gd" type="Script" id=2]
+
+[node name="EquaBand" type="MeshInstance"]
+mesh = ExtResource( 1 )
+blend_shapes/01 = 0.0
+blend_shapes/02 = 0.0
+blend_shapes/03 = 0.0
+blend_shapes/04 = 0.0
+blend_shapes/05 = 0.0
+blend_shapes/06 = 0.0
+blend_shapes/07 = 0.0
+blend_shapes/08 = 0.0
+blend_shapes/09 = 0.0
+blend_shapes/10 = 0.0
+blend_shapes/11 = 0.0
+blend_shapes/12 = 0.0
+blend_shapes/13 = 0.0
+blend_shapes/14 = 0.0
+blend_shapes/15 = 0.0
+blend_shapes/16 = 0.0
+material/0 = null
+script = ExtResource( 2 )
+
+[node name="EquaBand" type="Spatial" parent="."]
