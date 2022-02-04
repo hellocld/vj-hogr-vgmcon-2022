@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scenes/VUMeter/SingleMeter.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/VUMeter/Threshold.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/VUMeter/Peak.tscn" type="PackedScene" id=3]
 
 [node name="VUMeter" type="Control"]
 anchor_right = 1.0
@@ -187,5 +188,95 @@ margin_right = 959.0
 index = 14
 
 [node name="Threshold16" parent="Thresholds" instance=ExtResource( 2 )]
+margin_left = 967.0
+index = 15
+
+[node name="Peaks" type="HBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 1.0
+margin_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 8
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Peak" parent="Peaks" instance=ExtResource( 3 )]
+margin_right = 56.0
+
+[node name="Peak2" parent="Peaks" instance=ExtResource( 3 )]
+margin_left = 64.0
+margin_right = 121.0
+index = 1
+
+[node name="Peak3" parent="Peaks" instance=ExtResource( 3 )]
+margin_left = 129.0
+margin_right = 185.0
+index = 2
+
+[node name="Peak4" parent="Peaks" instance=ExtResource( 3 )]
+margin_left = 193.0
+margin_right = 250.0
+index = 3
+
+[node name="Peak5" parent="Peaks" instance=ExtResource( 3 )]
+margin_left = 258.0
+margin_right = 314.0
+index = 4
+
+[node name="Peak6" parent="Peaks" instance=ExtResource( 3 )]
+margin_left = 322.0
+margin_right = 379.0
+index = 5
+
+[node name="Peak7" parent="Peaks" instance=ExtResource( 3 )]
+margin_left = 387.0
+margin_right = 443.0
+index = 6
+
+[node name="Peak8" parent="Peaks" instance=ExtResource( 3 )]
+margin_left = 451.0
+margin_right = 508.0
+index = 7
+
+[node name="Peak9" parent="Peaks" instance=ExtResource( 3 )]
+margin_left = 516.0
+margin_right = 572.0
+index = 8
+
+[node name="Peak10" parent="Peaks" instance=ExtResource( 3 )]
+margin_left = 580.0
+margin_right = 637.0
+index = 9
+
+[node name="Peak11" parent="Peaks" instance=ExtResource( 3 )]
+margin_left = 645.0
+margin_right = 701.0
+index = 10
+
+[node name="Peak12" parent="Peaks" instance=ExtResource( 3 )]
+margin_left = 709.0
+margin_right = 766.0
+index = 11
+
+[node name="Peak13" parent="Peaks" instance=ExtResource( 3 )]
+margin_left = 774.0
+margin_right = 830.0
+index = 12
+
+[node name="Peak14" parent="Peaks" instance=ExtResource( 3 )]
+margin_left = 838.0
+margin_right = 895.0
+index = 13
+
+[node name="Peak15" parent="Peaks" instance=ExtResource( 3 )]
+margin_left = 903.0
+margin_right = 959.0
+index = 14
+
+[node name="Peak16" parent="Peaks" instance=ExtResource( 3 )]
 margin_left = 967.0
 index = 15

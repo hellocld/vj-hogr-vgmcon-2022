@@ -63,50 +63,17 @@ shadow_enabled = true
 transform = Transform( 1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0, 0 )
 
 [node name="EquaBand" parent="EquaBandGroup" instance=ExtResource( 2 )]
-transform = Transform( -0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, -0.5, 0, 0, 0 )
+transform = Transform( -0.75, 0, 1.29904, 0, 1.5, 0, -1.29904, 0, -0.75, 0, 0, 0 )
 skeleton = NodePath("../..")
 material/0 = ExtResource( 3 )
 
 [node name="EquaBand2" parent="EquaBandGroup" instance=ExtResource( 2 )]
-transform = Transform( -0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, -0.5, 0, 0, 0 )
+transform = Transform( -1, 0, -1.73205, 0, 2, 0, 1.73205, 0, -1, 0, 0, 0 )
 skeleton = NodePath("../..")
 material/0 = ExtResource( 3 )
 
 [node name="EquaBand3" parent="EquaBandGroup" instance=ExtResource( 2 )]
-skeleton = NodePath("../..")
-material/0 = ExtResource( 3 )
-
-[node name="EquaBandGroup2" type="Spatial" parent="."]
-transform = Transform( 1.73205, 0, 1, 0, 0.8, 0, -1, 0, 1.73205, 0, 0, 0 )
-
-[node name="EquaBand" parent="EquaBandGroup2" instance=ExtResource( 2 )]
-transform = Transform( -0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, -0.5, 0, 0, 0 )
-skeleton = NodePath("../..")
-material/0 = ExtResource( 3 )
-
-[node name="EquaBand2" parent="EquaBandGroup2" instance=ExtResource( 2 )]
-transform = Transform( -0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, -0.5, 0, 0, 0 )
-skeleton = NodePath("../..")
-material/0 = ExtResource( 3 )
-
-[node name="EquaBand3" parent="EquaBandGroup2" instance=ExtResource( 2 )]
-skeleton = NodePath("../..")
-material/0 = ExtResource( 3 )
-
-[node name="EquaBandGroup3" type="Spatial" parent="."]
-transform = Transform( 1.5, 0, 2.59808, 0, 0.4, 0, -2.59808, 0, 1.5, 0, 0, 0 )
-
-[node name="EquaBand" parent="EquaBandGroup3" instance=ExtResource( 2 )]
-transform = Transform( -0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, -0.5, 0, 0, 0 )
-skeleton = NodePath("../..")
-material/0 = ExtResource( 3 )
-
-[node name="EquaBand2" parent="EquaBandGroup3" instance=ExtResource( 2 )]
-transform = Transform( -0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, -0.5, 0, 0, 0 )
-skeleton = NodePath("../..")
-material/0 = ExtResource( 3 )
-
-[node name="EquaBand3" parent="EquaBandGroup3" instance=ExtResource( 2 )]
+transform = Transform( 2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0, 0, 0 )
 skeleton = NodePath("../..")
 material/0 = ExtResource( 3 )
 
@@ -131,5 +98,6 @@ update_mode = 1
 extents = Vector3( 4, 4, 4 )
 
 [node name="VUMeter" parent="." instance=ExtResource( 8 )]
+visible = false
 margin_top = 523.0
 margin_right = -819.0

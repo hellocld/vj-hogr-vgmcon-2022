@@ -8,11 +8,20 @@ var _bus_idx : int
 var _effect : AudioEffectSpectrumAnalyzerInstance
 var _freq_range := 44100.0 / 4
 var _min_db := 60
+var _peak_timer_time := 5.0
+var _peak_decrease_multiplier = 0.5
+
+
+var _sample_timer : Timer
+var _peaks_timers : Array
+var _peaks_descend : Array
 
 var sample_size := 16
 var samples : Array
+var peaks : Array
 var sample_trigger_thresholds : Array
 var sample_triggered : Array
+
 
 
 func _ready() -> void:
@@ -21,10 +30,15 @@ func _ready() -> void:
 	for i in sample_size:
 		sample_trigger_thresholds.append(0.5)
 		sample_triggered.append(false)
+		peaks.append(0.0)
+		_peaks_descend.append(true)
+		_peaks_timers.append(null)
 
 
-func _process(_delta) -> void:
+func _process(delta) -> void:
 	samples = _get_samples()
+	_set_peaks()
+	_descend_peaks(delta)
 	for i in sample_size:
 		if samples[i] >= sample_trigger_thresholds[i] && !sample_triggered[i]:
 			emit_signal("sample_triggered", i)
@@ -53,8 +67,45 @@ func get_sample(idx:int) -> float:
 	return 0.0
 
 
+func get_peak(idx:int) -> float:
+	if idx < peaks.size():
+		if peaks[idx] != null:
+			return peaks[idx]
+	return 0.0
+
+
+func get_normalized_sample(idx:int) -> float:
+	if idx < samples.size() and idx < peaks.size():
+		if samples[idx] != null and peaks[idx] != null:
+			if peaks[idx] > 0.0:
+				return clamp(samples[idx] / peaks[idx], 0.0, 1.0)
+	return 0.0
+
+
 # Sets the threshold value at which the 'sample_triggered' signal should be 
 # emitted for the given sample index
 func set_sample_trigger_threshold(idx:int, val:float) -> void:
 	sample_trigger_thresholds[idx] = clamp(val, 0, 1)
 	emit_signal("sample_threshold_changed", idx, val)
+
+
+# Sets the peak value for each sample index
+func _set_peaks() -> void:
+	for i in sample_size:
+		if samples[i] > peaks[i]:
+			peaks[i] = samples[i]
+			_peaks_descend[i] = false
+			_peaks_timers[i] = get_tree().create_timer(_peak_timer_time)
+			_peaks_timers[i].connect("timeout", self, "_trigger_peak_descend", [i])
+			
+
+
+func _trigger_peak_descend(i) -> void:
+	_peaks_descend[i] = true
+	_peaks_timers[i] = null
+
+
+func _descend_peaks(delta) -> void:
+	for i in sample_size:
+		if _peaks_descend[i] and peaks[i] > samples[i]:
+			peaks[i] -= delta * _peak_decrease_multiplier
