@@ -8,6 +8,22 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Spatial",
+"class": "Pulser",
+"language": "GDScript",
+"path": "res://Scenes/Tools/Pulser.gd"
+}, {
+"base": "Reference",
+"class": "Rotator",
+"language": "GDScript",
+"path": "res://Scenes/Tools/Rotator.gd"
+} ]
+_global_script_class_icons={
+"Pulser": "",
+"Rotator": ""
+}
+
 [application]
 
 config/name="VJ.HOGR.VGMCON.2022"
@@ -21,12 +37,23 @@ enable_audio_input=true
 
 SpectrumAnalyzer="*res://Autoloads/SpectrumAnalyzer/SpectrumAnalyzer.tscn"
 AutoThresholdSetter="*res://Autoloads/AutoThresholdSetter/AutoThresholdSetter.gd"
+CameraSwitcher="*res://Autoloads/CameraSwitcher/CameraSwitcher.gd"
 
 [input]
 
 util_autothreshset={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":32,"unicode":0,"echo":false,"script":null)
+ ]
+}
+cam_next={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":75,"unicode":0,"echo":false,"script":null)
+ ]
+}
+cam_prev={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":74,"unicode":0,"echo":false,"script":null)
  ]
 }
 

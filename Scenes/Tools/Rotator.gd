@@ -1,3 +1,4 @@
+class_name Rotator
 extends Spatial
 
 export(Vector3) var rotation_amount
