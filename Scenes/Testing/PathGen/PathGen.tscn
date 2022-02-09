@@ -1,14 +1,15 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scenes/Testing/PathGen/PathFromJson.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Testing/PathGen/FollowerTester.gd" type="Script" id=2]
 [ext_resource path="res://Sprites/512_noise.png" type="Texture" id=3]
 [ext_resource path="res://Scenes/Testing/PathGen/LookAtCam.gd" type="Script" id=4]
+[ext_resource path="res://Models/Racetrack/TestTrack/TestTrack.gltf" type="PackedScene" id=5]
 
-[sub_resource type="Curve3D" id=1]
+[sub_resource type="Curve3D" id=6]
 _data = {
-"points": PoolVector3Array(  ),
-"tilts": PoolRealArray(  )
+"points": PoolVector3Array( -0.421502, 0.670879, 4.51092, 0.597998, -0.951796, -6.39978, -14, 0, 0, -6.36072, 5.80207e-08, -1.32736, 4.13389, -3.77082e-08, 0.862663, 0, 3.93403e-07, -9, 0.785405, -0.446044, -4.12522, -1.01548, 0.576708, 5.33366, 6, 0, 0, 5.44619, 0.10137, 0.374871, -4.56838, -0.0850313, -0.31445, -5.44921, 2.0965, 7.75296 ),
+"tilts": PoolRealArray( 0, 0, 0, 0 )
 }
 
 [sub_resource type="CapsuleMesh" id=2]
@@ -29,24 +30,32 @@ albedo_texture = ExtResource( 3 )
 [node name="Spatial" type="Spatial"]
 
 [node name="Path" type="Path" parent="."]
-curve = SubResource( 1 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0 )
+curve = SubResource( 6 )
 script = ExtResource( 1 )
-json = "[{\"position\": {\"x\": -14.0, \"y\": 0.0, \"z\": 0.0}, \"in\": {\"x\": -14.421502113342285, \"y\": -4.510922431945801, \"z\": 0.6708794236183167}, \"out\": {\"x\": -13.402002334594727, \"y\": 6.399776458740234, \"z\": -0.9517961144447327}}, {\"position\": {\"x\": 0.0, \"y\": 9.0, \"z\": 0.0}, \"in\": {\"x\": -6.360721111297607, \"y\": 10.32735824584961, \"z\": 0.0}, \"out\": {\"x\": 4.133894920349121, \"y\": 8.137336730957031, \"z\": 0.0}}, {\"position\": {\"x\": 6.0, \"y\": 0.0, \"z\": 0.0}, \"in\": {\"x\": 6.785404682159424, \"y\": 4.125222206115723, \"z\": -0.4460444152355194}, \"out\": {\"x\": 4.984519004821777, \"y\": -5.333664417266846, \"z\": 0.5767086148262024}}, {\"position\": {\"x\": -5.449208736419678, \"y\": -7.752963066101074, \"z\": 2.096503734588623}, \"in\": {\"x\": -0.003020763397216797, \"y\": -8.12783432006836, \"z\": 2.197873830795288}, \"out\": {\"x\": -10.017583847045898, \"y\": -7.438513278961182, \"z\": 2.011472225189209}}]"
+json = "[{\"position\": {\"x\": -14.0, \"y\": 0.0, \"z\": 0.0}, \"in\": {\"x\": -14.421502113342285, \"y\": 0.6708793044090271, \"z\": 4.510922431945801}, \"out\": {\"x\": -13.402002334594727, \"y\": -0.9517958760261536, \"z\": -6.399776458740234}}, {\"position\": {\"x\": 0.0, \"y\": 3.934025016860687e-07, \"z\": -9.0}, \"in\": {\"x\": -6.360721111297607, \"y\": 4.514231761731935e-07, \"z\": -10.32735824584961}, \"out\": {\"x\": 4.133894920349121, \"y\": 3.5569431133808393e-07, \"z\": -8.137336730957031}}, {\"position\": {\"x\": 6.0, \"y\": 0.0, \"z\": 0.0}, \"in\": {\"x\": 6.785404682159424, \"y\": -0.44604426622390747, \"z\": -4.125222206115723}, \"out\": {\"x\": 4.984519004821777, \"y\": 0.5767084956169128, \"z\": 5.333664417266846}}, {\"position\": {\"x\": -5.449208736419678, \"y\": 2.096503496170044, \"z\": 7.752963066101074}, \"in\": {\"x\": -0.003020763397216797, \"y\": 2.197873592376709, \"z\": 8.12783432006836}, \"out\": {\"x\": -10.017583847045898, \"y\": 2.011472225189209, \"z\": 7.438513278961182}}]"
+loop = true
 
 [node name="PathFollow" type="PathFollow" parent="Path"]
+transform = Transform( 0.99324, 0.0285375, 0.112506, -0.0330928, 0.998697, 0.0388318, -0.111252, -0.0422926, 0.992887, 6.07695, -0.170566, -2.41763 )
+offset = 28.2903
 rotation_mode = 4
 script = ExtResource( 2 )
+speed = 5.0
 
 [node name="MeshInstance" type="MeshInstance" parent="Path/PathFollow"]
 mesh = SubResource( 2 )
 material/0 = SubResource( 5 )
+
+[node name="Camera" type="Camera" parent="Path/PathFollow"]
+transform = Transform( 1, 1.3411e-07, -2.68221e-07, 8.47504e-08, 0.80728, 0.590168, 2.68221e-07, -0.590169, 0.807282, -1.90735e-06, 1.42986, 4.57691 )
+script = ExtResource( 4 )
+target = NodePath("../MeshInstance")
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0 )
 mesh = SubResource( 3 )
 material/0 = SubResource( 4 )
 
-[node name="Camera" type="Camera" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.84714, 0.531369, 0, -0.531369, 0.84714, 0, 9.68232, 16.3406 )
-script = ExtResource( 4 )
-target = NodePath("../Path/PathFollow/MeshInstance")
+[node name="TestTrack" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0 )
