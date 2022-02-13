@@ -1,13 +1,12 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scenes/Tools/Rotator.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/MiniSculptures/EquaBand/EquaBand.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/MiniSculptures/Materials/TranslucentNormalRaditude.material" type="Material" id=3]
 [ext_resource path="res://Models/MiniSculptures/Elements/Elements_MarbleOrb.mesh" type="ArrayMesh" id=4]
 [ext_resource path="res://Sprites/HDRIs/studio_small_08_2k.exr" type="Texture" id=5]
-[ext_resource path="res://Models/MiniSculptures/Elements/Elements_Cone.mesh" type="ArrayMesh" id=6]
-[ext_resource path="res://Scenes/MiniSculptures/Materials/Chrome.material" type="Material" id=7]
-[ext_resource path="res://Scenes/VUMeter/VUMeter.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/MiniSculptures/Disc/Disc.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Models/MiniSculptures/DiscCylinder/DiscCylinder2_Cylinder.mesh" type="ArrayMesh" id=7]
 [ext_resource path="res://Scenes/MiniSculptures/ParticlePyramid/ParticlePyramid.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/Tools/Pulser.gd" type="Script" id=10]
 [ext_resource path="res://Models/MiniSculptures/Landscape/Landscape.gltf" type="PackedScene" id=11]
@@ -31,14 +30,14 @@ script = ExtResource( 1 )
 rotation_amount = Vector3( 0, 0.25, 0 )
 
 [node name="Camera_Static" type="Camera" parent="OrbitCam1" groups=["Cameras", "PrimaryCamera"]]
-transform = Transform( 1, 0, 0, 0, 0.918571, 0.395257, 0, -0.395257, 0.918571, 0, 1.35355, 1.81106 )
+transform = Transform( 1, 0, 0, 0, 0.971347, 0.237669, 0, -0.237669, 0.971347, 0, 1.35355, 1.81106 )
 fov = 110.3
 
 [node name="TopDownCamera" type="Camera" parent="OrbitCam1" groups=["Cameras"]]
 transform = Transform( 0.707107, 0.707107, 3.09086e-08, 0, -4.37114e-08, 1, 0.707107, -0.707107, -3.09086e-08, 5.05847e-08, 4.91366, -5.05847e-08 )
 
 [node name="TightOrbitCamera" type="Camera" parent="OrbitCam1" groups=["Cameras"]]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.344, 1.007, 1.112 )
+transform = Transform( 0.962706, 0, 0.27055, 0, 1, 0, -0.27055, 0, 0.962706, 1.862, 1.007, 1.112 )
 fov = 53.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -47,6 +46,14 @@ environment = SubResource( 19 )
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 transform = Transform( 0.93559, -0.352909, -0.0112486, 0.233864, 0.595494, 0.768566, -0.264536, -0.721693, 0.639671, 0, 0, 0 )
 shadow_enabled = true
+
+[node name="Pyramid" type="Spatial" parent="."]
+transform = Transform( 1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 0, 1, 0 )
+script = ExtResource( 1 )
+rotation_amount = Vector3( 1, 0.3, 0 )
+
+[node name="Landscape" parent="." instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.72332, 0 )
 
 [node name="EquaBandGroup" type="Spatial" parent="."]
 transform = Transform( 1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0, 0 )
@@ -69,40 +76,88 @@ blend_shapes/02 = 0.0942
 blend_shapes/05 = 0.8
 material/0 = ExtResource( 3 )
 
-[node name="Pyramid" type="Spatial" parent="."]
-transform = Transform( 1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 0, 1, 0 )
-script = ExtResource( 1 )
-rotation_amount = Vector3( 1, 0.3, 0 )
-
-[node name="ParticlePyramid" parent="Pyramid" instance=ExtResource( 9 )]
-
-[node name="Pulser" type="Spatial" parent="Pyramid"]
+[node name="Orb" type="Spatial" parent="."]
 visible = false
-script = ExtResource( 10 )
-channel = 1
-multiplier = 1.0
-base_scale = 1.0
 
-[node name="MeshInstance" type="MeshInstance" parent="Pyramid/Pulser"]
-mesh = ExtResource( 6 )
-skeleton = NodePath("../../..")
-material/0 = ExtResource( 7 )
+[node name="ParticlePyramid" parent="Orb" instance=ExtResource( 9 )]
+transform = Transform( 1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 0, 1, 0 )
 
-[node name="Orb" type="MeshInstance" parent="."]
+[node name="Orb" type="MeshInstance" parent="Orb"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
 mesh = ExtResource( 4 )
+skeleton = NodePath("../..")
 material/0 = null
 
-[node name="ReflectionProbe" type="ReflectionProbe" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.789715, 0 )
-visible = false
-update_mode = 1
-extents = Vector3( 4, 4, 4 )
+[node name="CylinderDiscs" type="Spatial" parent="."]
+transform = Transform( 0.620184, 0, 0, 0, 0.380509, 0.489736, 0, -0.489736, 0.380509, 0, 1.14833, 0 )
 
-[node name="VUMeter" parent="." instance=ExtResource( 8 )]
-visible = false
-margin_top = 523.0
-margin_right = -819.0
+[node name="Disc01" parent="CylinderDiscs" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.3, 0 )
+spectrum_index = 1
 
-[node name="Landscape" parent="." instance=ExtResource( 11 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.72332, 0 )
+[node name="Disc02" parent="CylinderDiscs" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.1, 0 )
+spectrum_index = 2
+
+[node name="Disc03" parent="CylinderDiscs" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.9, 0 )
+spectrum_index = 3
+
+[node name="Disc04" parent="CylinderDiscs" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.7, 0 )
+spectrum_index = 4
+
+[node name="Disc05" parent="CylinderDiscs" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0 )
+spectrum_index = 5
+
+[node name="Disc06" parent="CylinderDiscs" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3, 0 )
+spectrum_index = 6
+
+[node name="Disc07" parent="CylinderDiscs" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0999997, 0 )
+spectrum_index = 7
+
+[node name="Disc08" parent="CylinderDiscs" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0 )
+spectrum_index = 8
+
+[node name="Disc09" parent="CylinderDiscs" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0 )
+spectrum_index = 9
+
+[node name="Disc10" parent="CylinderDiscs" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0 )
+spectrum_index = 10
+
+[node name="Disc11" parent="CylinderDiscs" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.700001, 0 )
+spectrum_index = 11
+
+[node name="Disc12" parent="CylinderDiscs" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.900001, 0 )
+spectrum_index = 12
+
+[node name="Disc13" parent="CylinderDiscs" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1, 0 )
+spectrum_index = 13
+
+[node name="Disc14" parent="CylinderDiscs" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3, 0 )
+spectrum_index = 14
+
+[node name="Pulser" type="Spatial" parent="CylinderDiscs"]
+script = ExtResource( 10 )
+multiplier = 1.2
+base_scale = 0.8
+
+[node name="Rotator" type="Spatial" parent="CylinderDiscs/Pulser"]
+script = ExtResource( 1 )
+rotation_amount = Vector3( 0, -1, 0 )
+
+[node name="Core" type="MeshInstance" parent="CylinderDiscs/Pulser/Rotator"]
+transform = Transform( 1, 0, 0, 0, 1, 2.98023e-08, 0, -2.98023e-08, 1, 0, 0, 0 )
+mesh = ExtResource( 7 )
+skeleton = NodePath("../../..")
+material/0 = null
