@@ -13,6 +13,7 @@ viewport_path = NodePath("Logo")
 
 [node name="Logo" type="Viewport" parent="."]
 size = Vector2( 960, 540 )
+transparent_bg = true
 usage = 0
 render_target_v_flip = true
 render_target_clear_mode = 1
@@ -30,14 +31,12 @@ direction = Vector2( 0, -1 )
 spread = 0.0
 gravity = Vector2( 0, 200 )
 initial_velocity = 200.0
+orbit_velocity = 0.2
 scale_amount = 3.0
 scale_amount_random = 1.0
 scale_amount_curve = SubResource( 5 )
-hue_variation = 0.33
-hue_variation_random = 0.55
-
-[node name="Camera2D" type="Camera2D" parent="Logo"]
-anchor_mode = 0
+hue_variation = 1.0
+hue_variation_random = 1.0
 
 [node name="ColorRect" type="ColorRect" parent="Logo"]
 margin_right = 1024.0
@@ -46,6 +45,9 @@ color = Color( 0, 0, 0, 0.0235294 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Camera2D" type="Camera2D" parent="Logo"]
+anchor_mode = 0
 
 [node name="PrimaryCam" type="Camera2D" parent="." groups=["Cameras", "PrimaryCamera"]]
 anchor_mode = 0
