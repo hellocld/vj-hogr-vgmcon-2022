@@ -40,6 +40,10 @@ AutoThresholdSetter="*res://Autoloads/AutoThresholdSetter/AutoThresholdSetter.gd
 CameraSwitcher="*res://Autoloads/CameraSwitcher/CameraSwitcher.gd"
 OptionsManager="*res://Autoloads/OptionsManager/OptionsManager.gd"
 
+[display]
+
+window/stretch/mode="viewport"
+
 [input]
 
 ui_accept={
@@ -133,6 +137,7 @@ audio_sense_down={
 
 quality/filters/sharpen_intensity=0.5
 quality/driver/driver_name="GLES2"
+2d/snapping/use_gpu_pixel_snap=true
 quality/shadows/filter_mode=0
 quality/filters/anisotropic_filter_level=2
 quality/filters/use_fxaa=true
