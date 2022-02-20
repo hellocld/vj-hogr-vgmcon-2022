@@ -140,5 +140,6 @@ quality/driver/driver_name="GLES2"
 2d/snapping/use_gpu_pixel_snap=true
 quality/shadows/filter_mode=0
 quality/filters/anisotropic_filter_level=2
+environment/default_clear_color=Color( 0, 0, 0, 1 )
 quality/filters/use_fxaa=true
 environment/default_environment="res://DefaultEnvironment.tres"

@@ -1,44 +1,94 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Sprites/HOGR_pixel.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/512_noise.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/LogoSplash/AmigaBallRoom.tscn" type="PackedScene" id=3]
 
 [sub_resource type="Curve" id=5]
 bake_resolution = 1
-_data = [ Vector2( 0, 0 ), 0.0, 7.53838, 0, 0, Vector2( 0.364465, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.997722, 0 ), 0.0, 0.0, 0, 0 ]
+_data = [ Vector2( 0, 0 ), 0.0, 0.0917449, 0, 0, Vector2( 0.387244, 0.963636 ), 0.0, 0.0, 0, 0, Vector2( 0.997722, 0 ), 0.249432, 0.0, 0, 0 ]
 
-[sub_resource type="ViewportTexture" id=6]
+[sub_resource type="CanvasItemMaterial" id=7]
+
+[sub_resource type="ViewportTexture" id=11]
 viewport_path = NodePath("Logo")
+
+[sub_resource type="VisualShaderNodeTexture" id=8]
+texture = ExtResource( 2 )
+texture_type = 1
+
+[sub_resource type="VisualShader" id=9]
+code = "shader_type canvas_item;
+uniform sampler2D tex_frg_2 : hint_albedo;
+
+
+
+void vertex() {
+// Output:0
+
+}
+
+void fragment() {
+// Texture:2
+	vec4 tex_frg_2_read = texture(tex_frg_2, UV.xy);
+	vec3 n_out2p0 = tex_frg_2_read.rgb;
+	float n_out2p1 = tex_frg_2_read.a;
+
+// Output:0
+	COLOR.rgb = n_out2p0;
+
+}
+
+void light() {
+// Output:0
+
+}
+"
+graph_offset = Vector2( 0, -54 )
+mode = 1
+flags/light_only = false
+nodes/fragment/0/position = Vector2( 620, 200 )
+nodes/fragment/2/node = SubResource( 8 )
+nodes/fragment/2/position = Vector2( 360, 80 )
+nodes/fragment/connections = PoolIntArray( 2, 0, 0, 0 )
+
+[sub_resource type="ShaderMaterial" id=10]
+shader = SubResource( 9 )
 
 [node name="LogoSplash" type="Node2D"]
 
+[node name="PrimaryCam" type="Camera2D" parent="." groups=["Cameras", "PrimaryCamera"]]
+position = Vector2( 20, 0 )
+anchor_mode = 0
+current = true
+
 [node name="Logo" type="Viewport" parent="."]
-size = Vector2( 960, 540 )
+size = Vector2( 480, 270 )
 transparent_bg = true
+handle_input_locally = false
 usage = 0
 render_target_v_flip = true
 render_target_clear_mode = 1
+render_target_update_mode = 3
+
+[node name="AmigaBallRoom" parent="Logo" instance=ExtResource( 3 )]
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="Logo"]
-position = Vector2( 512, 300 )
-amount = 16
-lifetime = 4.0
-fixed_fps = 24
+position = Vector2( 256, 150 )
+amount = 6
 draw_order = 1
 texture = ExtResource( 1 )
 emission_shape = 2
-emission_rect_extents = Vector2( 512, 300 )
+emission_rect_extents = Vector2( 256, 150 )
 direction = Vector2( 0, -1 )
 spread = 0.0
-gravity = Vector2( 0, 200 )
-initial_velocity = 200.0
-orbit_velocity = 0.2
-scale_amount = 3.0
-scale_amount_random = 1.0
+gravity = Vector2( 0, 0 )
+scale_amount = 1.5
 scale_amount_curve = SubResource( 5 )
-hue_variation = 1.0
-hue_variation_random = 1.0
+color = Color( 0.4292, 0.544813, 0.58, 1 )
 
 [node name="ColorRect" type="ColorRect" parent="Logo"]
+visible = false
 margin_right = 1024.0
 margin_bottom = 600.0
 color = Color( 0, 0, 0, 0.0235294 )
@@ -47,9 +97,6 @@ __meta__ = {
 }
 
 [node name="Camera2D" type="Camera2D" parent="Logo"]
-anchor_mode = 0
-
-[node name="PrimaryCam" type="Camera2D" parent="." groups=["Cameras", "PrimaryCamera"]]
 anchor_mode = 0
 
 [node name="Control" type="Control" parent="."]
@@ -71,13 +118,22 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="Control/AspectRatioContainer"]
+material = SubResource( 7 )
 margin_left = -21.4
 margin_right = 1045.4
 margin_bottom = 600.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = SubResource( 6 )
+texture = SubResource( 11 )
 stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control2" type="Control" parent="."]
+material = SubResource( 10 )
+margin_right = 40.0
+margin_bottom = 40.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
