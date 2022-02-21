@@ -4,7 +4,7 @@ export(PackedScene) var BallScene : PackedScene
 var _ball
 
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("controller_a"):
+	if Input.is_action_just_pressed("controller_b"):
 		spawn_ball()
 
 func spawn_ball() -> void:
