@@ -1,8 +1,11 @@
 extends RigidBody2D
 
 var _idx = 0
+var _mat : ShaderMaterial
 
 func _ready() -> void:
+	_mat = $AnimatedSprite.material as ShaderMaterial
+	
 	var dir = 50
 	if rand_range(0, 1) < 0.5:
 		dir *= -1
@@ -11,7 +14,7 @@ func _ready() -> void:
 	_idx = rand_range(0, 15)
 
 func _process(_delta) -> void:
-	modulate.h = SpectrumAnalyzer.get_normalized_sample(_idx)
+	_mat.set_shader_param("Hue", SpectrumAnalyzer.get_sample(_idx))
 
 
 func _on_LifeSpan_timeout() -> void:
