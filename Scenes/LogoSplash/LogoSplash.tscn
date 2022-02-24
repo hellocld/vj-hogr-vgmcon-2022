@@ -1,14 +1,209 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=60 format=2]
 
 [ext_resource path="res://Sprites/HOGR_pixel.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/LogoSplash/MeterLine.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/LogoSplash/AmigaBallRoom.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Sprites/HOGR_pixe_animl.png" type="Texture" id=4]
 [ext_resource path="res://Scenes/LogoSplash/BigLogo.gd" type="Script" id=5]
+[ext_resource path="res://Models/AmigaBall/Frames/anim.png" type="Texture" id=6]
+[ext_resource path="res://Scenes/LogoSplash/BigBall.gd" type="Script" id=7]
 
 [sub_resource type="Curve" id=5]
 bake_resolution = 1
 _data = [ Vector2( 0, 0 ), 0.0, 0.0917449, 0, 0, Vector2( 0.387244, 0.963636 ), 0.0, 0.0, 0, 0, Vector2( 0.997722, 0 ), 0.249432, 0.0, 0, 0 ]
+
+[sub_resource type="CanvasItemMaterial" id=67]
+blend_mode = 1
+
+[sub_resource type="AtlasTexture" id=47]
+atlas = ExtResource( 6 )
+region = Rect2( 0, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=48]
+atlas = ExtResource( 6 )
+region = Rect2( 128, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=49]
+atlas = ExtResource( 6 )
+region = Rect2( 256, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=50]
+atlas = ExtResource( 6 )
+region = Rect2( 384, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=51]
+atlas = ExtResource( 6 )
+region = Rect2( 512, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=52]
+atlas = ExtResource( 6 )
+region = Rect2( 640, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=53]
+atlas = ExtResource( 6 )
+region = Rect2( 768, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=54]
+atlas = ExtResource( 6 )
+region = Rect2( 896, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=55]
+atlas = ExtResource( 6 )
+region = Rect2( 1024, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=56]
+atlas = ExtResource( 6 )
+region = Rect2( 1152, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=57]
+atlas = ExtResource( 6 )
+region = Rect2( 1280, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=58]
+atlas = ExtResource( 6 )
+region = Rect2( 1408, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=59]
+atlas = ExtResource( 6 )
+region = Rect2( 1536, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=60]
+atlas = ExtResource( 6 )
+region = Rect2( 1664, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=61]
+atlas = ExtResource( 6 )
+region = Rect2( 1792, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=62]
+atlas = ExtResource( 6 )
+region = Rect2( 1920, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=63]
+atlas = ExtResource( 6 )
+region = Rect2( 2048, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=64]
+atlas = ExtResource( 6 )
+region = Rect2( 2176, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=65]
+atlas = ExtResource( 6 )
+region = Rect2( 2304, 0, 128, 128 )
+
+[sub_resource type="SpriteFrames" id=66]
+animations = [ {
+"frames": [ SubResource( 47 ), SubResource( 48 ), SubResource( 49 ), SubResource( 50 ), SubResource( 51 ), SubResource( 52 ), SubResource( 53 ), SubResource( 54 ), SubResource( 55 ), SubResource( 56 ), SubResource( 57 ), SubResource( 58 ), SubResource( 59 ), SubResource( 60 ), SubResource( 61 ), SubResource( 62 ), SubResource( 63 ), SubResource( 64 ), SubResource( 65 ) ],
+"loop": true,
+"name": "default",
+"speed": 10.0
+} ]
+
+[sub_resource type="Animation" id=68]
+resource_name = "FadeIn"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.584314 ) ]
+}
+
+[sub_resource type="Animation" id=69]
+resource_name = "FadeOut"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.584314 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=70]
+resource_name = "Reset"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="AnimationNodeAnimation" id=71]
+animation = "FadeIn"
+
+[sub_resource type="AnimationNodeAnimation" id=72]
+animation = "FadeOut"
+
+[sub_resource type="AnimationNodeAnimation" id=77]
+animation = "Reset"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=73]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=74]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=78]
+
+[sub_resource type="AnimationNodeStateMachine" id=75]
+states/FadeIn/node = SubResource( 71 )
+states/FadeIn/position = Vector2( 168, 145 )
+states/FadeOut/node = SubResource( 72 )
+states/FadeOut/position = Vector2( 406, 145 )
+states/Reset/node = SubResource( 77 )
+states/Reset/position = Vector2( 161, 253 )
+transitions = [ "FadeIn", "FadeOut", SubResource( 73 ), "FadeOut", "FadeIn", SubResource( 74 ), "Reset", "FadeIn", SubResource( 78 ) ]
+start_node = "Reset"
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=76]
+
+[sub_resource type="VisualShader" id=44]
+code = "shader_type canvas_item;
+
+
+
+void vertex() {
+// Output:0
+
+}
+
+void fragment() {
+// Output:0
+
+}
+
+void light() {
+// Output:0
+
+}
+"
+graph_offset = Vector2( -404, 95 )
+mode = 1
+flags/light_only = false
+
+[sub_resource type="ShaderMaterial" id=45]
+shader = SubResource( 44 )
+
+[sub_resource type="Curve" id=42]
+_data = [ Vector2( 0, 0.3 ), 0.0, 0.0, 0, 0, Vector2( 0.5, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.3 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=43]
+
+[sub_resource type="ImageTexture" id=46]
 
 [sub_resource type="Animation" id=33]
 resource_name = "Furl"
@@ -155,37 +350,51 @@ start_node = "RESET"
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=31]
 
-[sub_resource type="CanvasItemMaterial" id=7]
-
-[sub_resource type="ViewportTexture" id=11]
-viewport_path = NodePath("Logo")
-
-[sub_resource type="ViewportTexture" id=12]
-viewport_path = NodePath("AmigaBalls")
-
-[sub_resource type="ViewportTexture" id=13]
-viewport_path = NodePath("Meter")
-
-[sub_resource type="ViewportTexture" id=27]
-viewport_path = NodePath("Viewport")
-
 [node name="LogoSplash" type="Node2D"]
 
 [node name="PrimaryCam" type="Camera2D" parent="." groups=["Cameras", "PrimaryCamera"]]
-position = Vector2( 20, 0 )
+position = Vector2( -5, 0 )
 anchor_mode = 0
 current = true
 
-[node name="Logo" type="Viewport" parent="."]
-size = Vector2( 480, 270 )
+[node name="Composite" type="Control" parent="."]
+margin_right = 1920.0
+margin_bottom = 1080.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="Composite"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+ratio = 1.778
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Logo" type="ViewportContainer" parent="Composite/AspectRatioContainer"]
+margin_top = 0.0675049
+margin_right = 1920.0
+margin_bottom = 1079.93
+size_flags_horizontal = 3
+size_flags_vertical = 3
+stretch = true
+stretch_shrink = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Logo" type="Viewport" parent="Composite/AspectRatioContainer/Logo"]
+size = Vector2( 960, 539 )
 transparent_bg = true
 handle_input_locally = false
 usage = 0
-render_target_v_flip = true
 render_target_clear_mode = 2
 render_target_update_mode = 3
 
-[node name="CPUParticles2D" type="CPUParticles2D" parent="Logo"]
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Composite/AspectRatioContainer/Logo/Logo"]
 position = Vector2( 256, 150 )
 amount = 3
 draw_order = 1
@@ -199,7 +408,7 @@ scale_amount = 1.5
 scale_amount_curve = SubResource( 5 )
 color = Color( 0.156863, 0.156863, 0.156863, 1 )
 
-[node name="ColorRect" type="ColorRect" parent="Logo"]
+[node name="ColorRect" type="ColorRect" parent="Composite/AspectRatioContainer/Logo/Logo"]
 margin_right = 1024.0
 margin_bottom = 600.0
 color = Color( 0, 0, 0, 0.0313726 )
@@ -207,47 +416,111 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Camera2D" type="Camera2D" parent="Logo"]
+[node name="Camera2D" type="Camera2D" parent="Composite/AspectRatioContainer/Logo/Logo"]
 anchor_mode = 0
 
-[node name="AmigaBalls" type="Viewport" parent="."]
-size = Vector2( 480, 270 )
-transparent_bg = true
-render_target_v_flip = true
+[node name="BigBall" type="ViewportContainer" parent="Composite/AspectRatioContainer"]
+margin_top = 0.0675049
+margin_right = 1920.0
+margin_bottom = 1079.93
+stretch = true
+stretch_shrink = 2
 
-[node name="AmigaBallRoom" parent="AmigaBalls" instance=ExtResource( 3 )]
-
-[node name="Meter" type="Viewport" parent="."]
-size = Vector2( 480, 270 )
+[node name="Viewport" type="Viewport" parent="Composite/AspectRatioContainer/BigBall"]
+size = Vector2( 960, 539 )
 transparent_bg = true
-usage = 0
-render_target_v_flip = true
+handle_input_locally = false
 render_target_update_mode = 3
 
-[node name="MeterLine" type="Line2D" parent="Meter"]
+[node name="BigBall" type="AnimatedSprite" parent="Composite/AspectRatioContainer/BigBall/Viewport"]
+modulate = Color( 1, 1, 1, 0 )
+material = SubResource( 67 )
+position = Vector2( 270, 156 )
+scale = Vector2( 5, 5 )
+frames = SubResource( 66 )
+frame = 7
+playing = true
+script = ExtResource( 7 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Composite/AspectRatioContainer/BigBall/Viewport/BigBall"]
+anims/FadeIn = SubResource( 68 )
+anims/FadeOut = SubResource( 69 )
+anims/Reset = SubResource( 70 )
+
+[node name="AnimationTree" type="AnimationTree" parent="Composite/AspectRatioContainer/BigBall/Viewport/BigBall"]
+tree_root = SubResource( 75 )
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/playback = SubResource( 76 )
+
+[node name="Meter" type="ViewportContainer" parent="Composite/AspectRatioContainer"]
+material = SubResource( 45 )
+margin_top = 0.0675049
+margin_right = 1920.0
+margin_bottom = 1079.93
+stretch = true
+stretch_shrink = 2
+
+[node name="Meter" type="Viewport" parent="Composite/AspectRatioContainer/Meter"]
+size = Vector2( 960, 539 )
+transparent_bg = true
+handle_input_locally = false
+usage = 0
+render_target_update_mode = 3
+
+[node name="MeterLine" type="Line2D" parent="Composite/AspectRatioContainer/Meter/Meter"]
+visible = false
+width_curve = SubResource( 42 )
+gradient = SubResource( 43 )
 joint_mode = 2
 begin_cap_mode = 2
 end_cap_mode = 2
 script = ExtResource( 2 )
+feedback_rect = NodePath("../FeedbackRect")
+viewport = NodePath("..")
 
-[node name="FeedbackRect" type="TextureRect" parent="Meter"]
+[node name="FeedbackRect" type="TextureRect" parent="Composite/AspectRatioContainer/Meter/Meter"]
 modulate = Color( 1, 0.976471, 0.941176, 0.929412 )
-margin_left = -5.0
-margin_top = -5.0
-margin_right = 495.0
-margin_bottom = 285.0
+margin_left = -27.0
+margin_top = -19.0
+margin_right = 1037.0
+margin_bottom = 591.0
+texture = SubResource( 46 )
 expand = true
 stretch_mode = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Viewport" type="Viewport" parent="."]
-size = Vector2( 480, 270 )
-transparent_bg = true
-render_target_v_flip = true
+[node name="Amiga" type="ViewportContainer" parent="Composite/AspectRatioContainer"]
+margin_top = 0.0675049
+margin_right = 1920.0
+margin_bottom = 1079.93
+stretch = true
+stretch_shrink = 2
 
-[node name="BigLogo" type="Sprite" parent="Viewport"]
+[node name="AmigaBalls" type="Viewport" parent="Composite/AspectRatioContainer/Amiga"]
+size = Vector2( 960, 539 )
+transparent_bg = true
+handle_input_locally = false
+render_target_update_mode = 3
+
+[node name="AmigaBallRoom" parent="Composite/AspectRatioContainer/Amiga/AmigaBalls" instance=ExtResource( 3 )]
+
+[node name="BigLogo" type="ViewportContainer" parent="Composite/AspectRatioContainer"]
+margin_top = 0.0675049
+margin_right = 1920.0
+margin_bottom = 1079.93
+stretch = true
+stretch_shrink = 2
+
+[node name="Viewport" type="Viewport" parent="Composite/AspectRatioContainer/BigLogo"]
+size = Vector2( 960, 539 )
+transparent_bg = true
+handle_input_locally = false
+render_target_update_mode = 3
+
+[node name="BigLogo" type="Sprite" parent="Composite/AspectRatioContainer/BigLogo/Viewport"]
 visible = false
 position = Vector2( 256, 150 )
 scale = Vector2( 2, 2 )
@@ -256,91 +529,14 @@ hframes = 11
 frame = 10
 script = ExtResource( 5 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Viewport/BigLogo"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Composite/AspectRatioContainer/BigLogo/Viewport/BigLogo"]
 anims/Furl = SubResource( 33 )
 anims/Glint = SubResource( 32 )
 anims/RESET = SubResource( 28 )
 anims/Unfurl = SubResource( 29 )
 
-[node name="AnimationTree" type="AnimationTree" parent="Viewport/BigLogo"]
+[node name="AnimationTree" type="AnimationTree" parent="Composite/AspectRatioContainer/BigLogo/Viewport/BigLogo"]
 tree_root = SubResource( 30 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/playback = SubResource( 31 )
-
-[node name="Composite" type="Control" parent="."]
-margin_right = 1024.0
-margin_bottom = 600.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="AspectRatioContainer" type="AspectRatioContainer" parent="Composite"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-ratio = 1.778
-stretch_mode = 3
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Logo" type="TextureRect" parent="Composite/AspectRatioContainer"]
-material = SubResource( 7 )
-margin_left = -21.4
-margin_right = 1045.4
-margin_bottom = 600.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-texture = SubResource( 11 )
-stretch_mode = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="AmigaBalls" type="TextureRect" parent="Composite/AspectRatioContainer"]
-material = SubResource( 7 )
-margin_left = -21.4
-margin_right = 1045.4
-margin_bottom = 600.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-texture = SubResource( 12 )
-stretch_mode = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Meter" type="TextureRect" parent="Composite/AspectRatioContainer"]
-material = SubResource( 7 )
-margin_left = -21.4
-margin_right = 1045.4
-margin_bottom = 600.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-texture = SubResource( 13 )
-stretch_mode = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Meter2" type="TextureRect" parent="Composite/AspectRatioContainer"]
-material = SubResource( 7 )
-margin_left = -21.4
-margin_right = 1045.4
-margin_bottom = 600.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-texture = SubResource( 27 )
-stretch_mode = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ViewportContainer" type="ViewportContainer" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
-__meta__ = {
-"_edit_use_anchors_": false
-}

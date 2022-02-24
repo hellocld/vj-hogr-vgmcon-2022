@@ -78,14 +78,19 @@ material/0 = ExtResource( 3 )
 
 [node name="Orb" type="Spatial" parent="."]
 
-[node name="ParticlePyramid" parent="Orb" instance=ExtResource( 9 )]
-transform = Transform( 1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 0, 1, 0 )
-
 [node name="Orb" type="MeshInstance" parent="Orb"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
 mesh = ExtResource( 4 )
 skeleton = NodePath("../..")
 material/0 = null
+
+[node name="Rotator" type="Spatial" parent="Orb"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
+script = ExtResource( 1 )
+rotation_amount = Vector3( 1, 1, 0 )
+
+[node name="ParticlePyramid" parent="Orb/Rotator" instance=ExtResource( 9 )]
+transform = Transform( 1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 0, 0, 0 )
 
 [node name="CylinderDiscs" type="Spatial" parent="."]
 transform = Transform( 0.620184, 0, 0, 0, 0.380509, 0.489736, 0, -0.489736, 0.380509, 0, 1.14833, 0 )

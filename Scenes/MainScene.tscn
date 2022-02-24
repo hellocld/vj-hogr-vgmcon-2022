@@ -1,0 +1,65 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Autoloads/SceneSwitcher/SceneSwitcher.gd" type="Script" id=1]
+
+[sub_resource type="Animation" id=1]
+resource_name = "FadeIn"
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "FadeOut"
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+}
+
+[node name="SceneSwitcher" type="Node"]
+script = ExtResource( 1 )
+__meta__ = {
+"_editor_description_": "Handles switching between scenes"
+}
+scene_list = [ "res://Scenes/LogoSplash/LogoSplash.tscn", "res://Scenes/MiniSculptures/MiniSculptures.tscn" ]
+
+[node name="FadeInOut" type="CanvasLayer" parent="."]
+layer = -128
+__meta__ = {
+"_editor_description_": "Covers everything in the scene during transitions"
+}
+
+[node name="ColorRect" type="ColorRect" parent="FadeInOut"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="FadeInOut"]
+anims/FadeIn = SubResource( 1 )
+anims/FadeOut = SubResource( 2 )
+
+[node name="SceneRoot" type="Node" parent="."]
+__meta__ = {
+"_editor_description_": "Parent Node for loaded viz"
+}
+
+[connection signal="animation_finished" from="FadeInOut/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
