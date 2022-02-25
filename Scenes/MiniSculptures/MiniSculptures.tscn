@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Scenes/Tools/Rotator.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/MiniSculptures/EquaBand/EquaBand.tscn" type="PackedScene" id=2]
@@ -11,6 +11,8 @@
 [ext_resource path="res://Scenes/MiniSculptures/ParticlePyramid/ParticlePyramid.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/Tools/Pulser.gd" type="Script" id=10]
 [ext_resource path="res://Models/MiniSculptures/Landscape/Landscape.gltf" type="PackedScene" id=11]
+[ext_resource path="res://Scenes/Tools/LookAtCam.gd" type="Script" id=12]
+[ext_resource path="res://Scenes/MiniSculptures/CamPathFollow.gd" type="Script" id=13]
 
 [sub_resource type="PanoramaSky" id=18]
 panorama = ExtResource( 5 )
@@ -190,21 +192,27 @@ tracks/3/keys = {
 "values": [ 0.0, 1.0 ]
 }
 
+[sub_resource type="Curve3D" id=28]
+_data = {
+"points": PoolVector3Array( 3.1, 0, 0, -3.1, 0, 0, 0, 0, -15, -0.1, 0, -5.3, 0.1, 0, 5.3, -5.5767, 4, -3.205, -4.8, 0, -0.1, 4.8, 0, 0.1, -0.149573, 0, 15.1518, -0.219826, 0, 5.77032, 0.219826, 0, -5.77032, 5.0639, 7, 3.846, 3.8, 0, 0, -3.8, 0, 0, 0, 0, -15 ),
+"tilts": PoolRealArray( 0, 0, 0, 0, 0 )
+}
+
 [node name="MiniSculptures" type="Spatial"]
 
-[node name="OrbitCam1" type="Spatial" parent="."]
+[node name="OrbitCams" type="Spatial" parent="."]
 transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0, 0, 0 )
 script = ExtResource( 1 )
 rotation_amount = Vector3( 0, 0.25, 0 )
 
-[node name="Camera_Static" type="Camera" parent="OrbitCam1" groups=["Cameras", "PrimaryCamera"]]
+[node name="Camera_Static" type="Camera" parent="OrbitCams" groups=["Cameras", "PrimaryCamera"]]
 transform = Transform( 1, 0, 0, 0, 0.971346, 0.237669, 0, -0.237669, 0.971346, 0, 1.79136, 3.6004 )
 
-[node name="TopDownCamera" type="Camera" parent="OrbitCam1" groups=["Cameras"]]
+[node name="TopDownCamera" type="Camera" parent="OrbitCams" groups=["Cameras"]]
 transform = Transform( 0.707107, 0.707107, 3.09086e-08, 0, -4.37114e-08, 1, 0.707107, -0.707107, -3.09086e-08, 9.83328e-08, 6.45848, -9.83328e-08 )
 fov = 60.0
 
-[node name="TightOrbitCamera" type="Camera" parent="OrbitCam1" groups=["Cameras"]]
+[node name="TightOrbitCamera" type="Camera" parent="OrbitCams" groups=["Cameras"]]
 transform = Transform( 0.944054, 0, 0.329789, 0, 1, 0, -0.329789, 0, 0.944054, 2.05669, 1.007, 1.66932 )
 fov = 60.0
 
@@ -361,3 +369,18 @@ anims/Show = SubResource( 25 )
 [node name="SculptSwitcher" type="Node" parent="."]
 script = ExtResource( 8 )
 anim_nodes = [ NodePath("../Orb/OrbAnim"), NodePath("../CylinderDiscs/CylinderDiscsAnim") ]
+
+[node name="CamPath" type="Path" parent="."]
+curve = SubResource( 28 )
+
+[node name="CamPathFollow" type="PathFollow" parent="CamPath"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -15 )
+script = ExtResource( 13 )
+speed = 2.0
+
+[node name="LookAtCam" type="Camera" parent="CamPath/CamPathFollow" groups=["Cameras"]]
+script = ExtResource( 12 )
+target = NodePath("../../../LookAtTarget")
+
+[node name="LookAtTarget" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )

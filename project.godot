@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Camera",
+"class": "LookAtCam",
+"language": "GDScript",
+"path": "res://Scenes/Tools/LookAtCam.gd"
+}, {
 "base": "Spatial",
 "class": "Pulser",
 "language": "GDScript",
@@ -20,6 +25,7 @@ _global_script_classes=[ {
 "path": "res://Scenes/Tools/Rotator.gd"
 } ]
 _global_script_class_icons={
+"LookAtCam": "",
 "Pulser": "",
 "Rotator": ""
 }
