@@ -2,7 +2,7 @@ extends MeshInstance
 
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	set("blend_shapes/01", SpectrumAnalyzer.get_normalized_sample(0))
 	set("blend_shapes/02", SpectrumAnalyzer.get_normalized_sample(1))
 	set("blend_shapes/03", SpectrumAnalyzer.get_normalized_sample(2))

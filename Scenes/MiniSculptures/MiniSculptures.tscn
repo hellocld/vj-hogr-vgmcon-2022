@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Scenes/Tools/Rotator.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/MiniSculptures/EquaBand/EquaBand.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Sprites/HDRIs/studio_small_08_2k.exr" type="Texture" id=5]
 [ext_resource path="res://Scenes/MiniSculptures/Disc/Disc.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Models/MiniSculptures/DiscCylinder/DiscCylinder2_Cylinder.mesh" type="ArrayMesh" id=7]
+[ext_resource path="res://Scenes/MiniSculptures/SculptSwitcher.gd" type="Script" id=8]
 [ext_resource path="res://Scenes/MiniSculptures/ParticlePyramid/ParticlePyramid.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/Tools/Pulser.gd" type="Script" id=10]
 [ext_resource path="res://Models/MiniSculptures/Landscape/Landscape.gltf" type="PackedScene" id=11]
@@ -21,6 +22,174 @@ background_energy = 0.47
 ambient_light_color = Color( 1, 1, 1, 1 )
 ambient_light_energy = 0.37
 tonemap_mode = 4
+
+[sub_resource type="Animation" id=26]
+resource_name = "Hide"
+length = 2.0
+tracks/0/type = "transform"
+tracks/0/path = NodePath("../Orb")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = PoolRealArray( 0, 1, 0, 1, 0, 0, 0, 0, 1, 1, 1, 1, 2, 1, 0, 1, 0, 0, 0, 0, 1, 0.001, 0.001, 0.001 )
+tracks/1/type = "value"
+tracks/1/path = NodePath("../Orb:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("../Orb/Rotator/ParticlePyramid")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "_collapse"
+} ]
+}
+
+[sub_resource type="Animation" id=27]
+resource_name = "Show"
+length = 2.0
+tracks/0/type = "transform"
+tracks/0/path = NodePath("../Orb")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = PoolRealArray( 0, 1, 0, 1, 0, 0, 0, 0, 1, 0.001, 0.001, 0.001, 2, 1, 0, 1, 0, 0, 0, 0, 1, 1, 1, 1 )
+tracks/1/type = "value"
+tracks/1/path = NodePath("../Orb:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, true ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("../Orb/Rotator/ParticlePyramid")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "_expand"
+} ]
+}
+
+[sub_resource type="Animation" id=20]
+resource_name = "Hide"
+length = 2.0
+tracks/0/type = "transform"
+tracks/0/path = NodePath("../CylinderDiscs")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = PoolRealArray( 0, 1, 0, 1.14833, 0, 0, 0, 0, 1, 0.620184, 0.620184, 0.620184, 2, 1, 0, 1.148, 0, 0, 0, 0, 1, 0, 0, 0 )
+tracks/1/type = "value"
+tracks/1/path = NodePath("../CylinderDiscs:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../CylinderDiscs/Rotator/Pulser/Rotator/Core/OmniLight:light_energy")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 1.0, 0.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("../CylinderDiscs/Rotator/Pulser/Rotator/Core/OmniLight2:light_energy")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 1.0, 0.0 ]
+}
+
+[sub_resource type="Animation" id=25]
+resource_name = "Show"
+length = 2.0
+tracks/0/type = "transform"
+tracks/0/path = NodePath("../CylinderDiscs")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = PoolRealArray( 0, 1, 0, 1.148, 0, 0, 0, 0, 1, 0, 0, 0, 2, 1, 0, 1.14833, 0, 0, 0, 0, 1, 0.620184, 0.620184, 0.620184 )
+tracks/1/type = "value"
+tracks/1/path = NodePath("../CylinderDiscs:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../CylinderDiscs/Rotator/Pulser/Rotator/Core/OmniLight:light_energy")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("../CylinderDiscs/Rotator/Pulser/Rotator/Core/OmniLight2:light_energy")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
 
 [node name="MiniSculptures" type="Spatial"]
 
@@ -37,7 +206,7 @@ fov = 110.3
 transform = Transform( 0.707107, 0.707107, 3.09086e-08, 0, -4.37114e-08, 1, 0.707107, -0.707107, -3.09086e-08, 5.05847e-08, 4.91366, -5.05847e-08 )
 
 [node name="TightOrbitCamera" type="Camera" parent="OrbitCam1" groups=["Cameras"]]
-transform = Transform( 0.962706, 0, 0.27055, 0, 1, 0, -0.27055, 0, 0.962706, 1.862, 1.007, 1.112 )
+transform = Transform( 0.944054, 0, 0.329789, 0, 1, 0, -0.329789, 0, 0.944054, 1.862, 1.007, 1.112 )
 fov = 53.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -77,92 +246,119 @@ blend_shapes/05 = 0.8
 material/0 = ExtResource( 3 )
 
 [node name="Orb" type="Spatial" parent="."]
+transform = Transform( 0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 1, 0 )
 
 [node name="Orb" type="MeshInstance" parent="Orb"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
 mesh = ExtResource( 4 )
 skeleton = NodePath("../..")
 material/0 = null
 
 [node name="Rotator" type="Spatial" parent="Orb"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
 script = ExtResource( 1 )
 rotation_amount = Vector3( 1, 1, 0 )
 
 [node name="ParticlePyramid" parent="Orb/Rotator" instance=ExtResource( 9 )]
 transform = Transform( 1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 0, 0, 0 )
 
-[node name="CylinderDiscs" type="Spatial" parent="."]
-transform = Transform( 0.620184, 0, 0, 0, 0.380509, 0.489736, 0, -0.489736, 0.380509, 0, 1.14833, 0 )
-visible = false
+[node name="OrbAnim" type="AnimationPlayer" parent="Orb"]
+root_node = NodePath("../../SculptSwitcher")
+anims/Hide = SubResource( 26 )
+anims/Show = SubResource( 27 )
 
-[node name="Disc01" parent="CylinderDiscs" instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.3, 0 )
+[node name="CylinderDiscs" type="Spatial" parent="."]
+transform = Transform( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1.148, 0 )
+
+[node name="Rotator" type="Spatial" parent="CylinderDiscs"]
+transform = Transform( 1, 0, 0, 0, 1, -2.98023e-08, 0, 2.98023e-08, 1, 0, 0, 0 )
+script = ExtResource( 1 )
+rotation_amount = Vector3( -0.5, 0, -0.1 )
+
+[node name="Disc01" parent="CylinderDiscs/Rotator" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, -2.98023e-08, 0, 2.98023e-08, 1, 0, -1.3, -1.19209e-07 )
 spectrum_index = 1
 
-[node name="Disc02" parent="CylinderDiscs" instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.1, 0 )
+[node name="Disc02" parent="CylinderDiscs/Rotator" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, -2.98023e-08, 0, 2.98023e-08, 1, 0, -1.1, -1.19209e-07 )
 spectrum_index = 2
 
-[node name="Disc03" parent="CylinderDiscs" instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.9, 0 )
+[node name="Disc03" parent="CylinderDiscs/Rotator" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, -2.98023e-08, 0, 2.98023e-08, 1, 0, -0.9, -1.19209e-07 )
 spectrum_index = 3
 
-[node name="Disc04" parent="CylinderDiscs" instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.7, 0 )
+[node name="Disc04" parent="CylinderDiscs/Rotator" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, -2.98023e-08, 0, 2.98023e-08, 1, 0, -0.7, -1.19209e-07 )
 spectrum_index = 4
 
-[node name="Disc05" parent="CylinderDiscs" instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0 )
+[node name="Disc05" parent="CylinderDiscs/Rotator" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, -2.98023e-08, 0, 2.98023e-08, 1, 0, -0.5, -1.19209e-07 )
 spectrum_index = 5
 
-[node name="Disc06" parent="CylinderDiscs" instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3, 0 )
+[node name="Disc06" parent="CylinderDiscs/Rotator" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, -2.98023e-08, 0, 2.98023e-08, 1, 0, -0.3, 0 )
 spectrum_index = 6
 
-[node name="Disc07" parent="CylinderDiscs" instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0999997, 0 )
+[node name="Disc07" parent="CylinderDiscs/Rotator" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, -2.98023e-08, 0, 2.98023e-08, 1, 0, -0.0999997, 0 )
 spectrum_index = 7
 
-[node name="Disc08" parent="CylinderDiscs" instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0 )
+[node name="Disc08" parent="CylinderDiscs/Rotator" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, -2.98023e-08, 0, 2.98023e-08, 1, 0, 0.0999999, 0 )
 spectrum_index = 8
 
-[node name="Disc09" parent="CylinderDiscs" instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0 )
+[node name="Disc09" parent="CylinderDiscs/Rotator" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, -2.98023e-08, 0, 2.98023e-08, 1, 0, 0.3, -1.19209e-07 )
 spectrum_index = 9
 
-[node name="Disc10" parent="CylinderDiscs" instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0 )
+[node name="Disc10" parent="CylinderDiscs/Rotator" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, -2.98023e-08, 0, 2.98023e-08, 1, 0, 0.5, -1.19209e-07 )
 spectrum_index = 10
 
-[node name="Disc11" parent="CylinderDiscs" instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.700001, 0 )
+[node name="Disc11" parent="CylinderDiscs/Rotator" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, -2.98023e-08, 0, 2.98023e-08, 1, 0, 0.700001, 0 )
 spectrum_index = 11
 
-[node name="Disc12" parent="CylinderDiscs" instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.900001, 0 )
+[node name="Disc12" parent="CylinderDiscs/Rotator" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, -2.98023e-08, 0, 2.98023e-08, 1, 0, 0.900001, 0 )
 spectrum_index = 12
 
-[node name="Disc13" parent="CylinderDiscs" instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1, 0 )
+[node name="Disc13" parent="CylinderDiscs/Rotator" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, -2.98023e-08, 0, 2.98023e-08, 1, 0, 1.1, 0 )
 spectrum_index = 13
 
-[node name="Disc14" parent="CylinderDiscs" instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3, 0 )
+[node name="Disc14" parent="CylinderDiscs/Rotator" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, -2.98023e-08, 0, 2.98023e-08, 1, 0, 1.3, 1.19209e-07 )
 spectrum_index = 14
 
-[node name="Pulser" type="Spatial" parent="CylinderDiscs"]
+[node name="Pulser" type="Spatial" parent="CylinderDiscs/Rotator"]
+transform = Transform( 1, 0, 0, 0, 1, -2.98023e-08, 0, 2.98023e-08, 1, 0, 0, 0 )
 script = ExtResource( 10 )
-multiplier = 1.2
-base_scale = 0.8
+multiplier = Vector3( 0.1, 0.6, 0.1 )
 
-[node name="Rotator" type="Spatial" parent="CylinderDiscs/Pulser"]
+[node name="Rotator" type="Spatial" parent="CylinderDiscs/Rotator/Pulser"]
 script = ExtResource( 1 )
 rotation_amount = Vector3( 0, -1, 0 )
 
-[node name="Core" type="MeshInstance" parent="CylinderDiscs/Pulser/Rotator"]
+[node name="Core" type="MeshInstance" parent="CylinderDiscs/Rotator/Pulser/Rotator"]
 transform = Transform( 1, 0, 0, 0, 1, 2.98023e-08, 0, -2.98023e-08, 1, 0, 0, 0 )
 mesh = ExtResource( 7 )
-skeleton = NodePath("../../..")
+skeleton = NodePath("../../../..")
 material/0 = null
+
+[node name="OmniLight" type="OmniLight" parent="CylinderDiscs/Rotator/Pulser/Rotator/Core"]
+transform = Transform( 1.61242, 0, 0, 0, 1.61242, -1.19209e-07, 0, 1.19209e-07, 1.61242, 0, 1.84851, 1.19209e-07 )
+light_color = Color( 0, 1, 0.694118, 1 )
+light_energy = 0.0
+
+[node name="OmniLight2" type="OmniLight" parent="CylinderDiscs/Rotator/Pulser/Rotator/Core"]
+transform = Transform( 1.61242, 0, 0, 0, 1.61242, -1.19209e-07, 0, 1.19209e-07, 1.61242, 0, -1.849, 0 )
+light_color = Color( 0.716667, 0, 1, 1 )
+light_energy = 0.0
+
+[node name="CylinderDiscsAnim" type="AnimationPlayer" parent="CylinderDiscs"]
+root_node = NodePath("../../SculptSwitcher")
+anims/Hide = SubResource( 20 )
+anims/Show = SubResource( 25 )
+
+[node name="SculptSwitcher" type="Node" parent="."]
+script = ExtResource( 8 )
+anim_nodes = [ NodePath("../Orb/OrbAnim"), NodePath("../CylinderDiscs/CylinderDiscsAnim") ]

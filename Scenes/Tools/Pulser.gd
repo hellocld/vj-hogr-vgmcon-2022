@@ -2,8 +2,8 @@ class_name Pulser
 extends Spatial
 
 export(int) var channel
-export(float) var multiplier
-export(float) var base_scale
+export(Vector3) var multiplier
+export(Vector3) var base_scale := Vector3.ONE
 
 
 func _process(_delta) -> void:
