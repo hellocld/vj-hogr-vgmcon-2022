@@ -21,5 +21,8 @@ func _process(_delta: float) -> void:
 
 func _change_to_sculpt() -> void:
 	_anim_nodes[_current_idx].play("Hide")
-	_current_idx = _rand.randi_range(0, anim_nodes.size() - 1)
+	var new_idx = _current_idx
+	while new_idx == _current_idx:
+		new_idx = _rand.randi_range(0, anim_nodes.size() - 1)
+	_current_idx = new_idx
 	_anim_nodes[_current_idx].play("Show")

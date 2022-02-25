@@ -4,7 +4,7 @@
 [ext_resource path="res://Scenes/MiniSculptures/EquaBand/EquaBand.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/MiniSculptures/Materials/TranslucentNormalRaditude.material" type="Material" id=3]
 [ext_resource path="res://Models/MiniSculptures/Elements/Elements_MarbleOrb.mesh" type="ArrayMesh" id=4]
-[ext_resource path="res://Sprites/HDRIs/studio_small_08_2k.exr" type="Texture" id=5]
+[ext_resource path="res://Sprites/HDRIs/MiniSculptSkybox.exr" type="Texture" id=5]
 [ext_resource path="res://Scenes/MiniSculptures/Disc/Disc.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Models/MiniSculptures/DiscCylinder/DiscCylinder2_Cylinder.mesh" type="ArrayMesh" id=7]
 [ext_resource path="res://Scenes/MiniSculptures/SculptSwitcher.gd" type="Script" id=8]
@@ -18,9 +18,8 @@ panorama = ExtResource( 5 )
 [sub_resource type="Environment" id=19]
 background_mode = 2
 background_sky = SubResource( 18 )
-background_energy = 0.47
+background_energy = 3.05
 ambient_light_color = Color( 1, 1, 1, 1 )
-ambient_light_energy = 0.37
 tonemap_mode = 4
 
 [sub_resource type="Animation" id=26]
@@ -199,15 +198,15 @@ script = ExtResource( 1 )
 rotation_amount = Vector3( 0, 0.25, 0 )
 
 [node name="Camera_Static" type="Camera" parent="OrbitCam1" groups=["Cameras", "PrimaryCamera"]]
-transform = Transform( 1, 0, 0, 0, 0.971347, 0.237669, 0, -0.237669, 0.971347, 0, 1.35355, 1.81106 )
-fov = 110.3
+transform = Transform( 1, 0, 0, 0, 0.971346, 0.237669, 0, -0.237669, 0.971346, 0, 1.79136, 3.6004 )
 
 [node name="TopDownCamera" type="Camera" parent="OrbitCam1" groups=["Cameras"]]
-transform = Transform( 0.707107, 0.707107, 3.09086e-08, 0, -4.37114e-08, 1, 0.707107, -0.707107, -3.09086e-08, 5.05847e-08, 4.91366, -5.05847e-08 )
+transform = Transform( 0.707107, 0.707107, 3.09086e-08, 0, -4.37114e-08, 1, 0.707107, -0.707107, -3.09086e-08, 9.83328e-08, 6.45848, -9.83328e-08 )
+fov = 60.0
 
 [node name="TightOrbitCamera" type="Camera" parent="OrbitCam1" groups=["Cameras"]]
-transform = Transform( 0.944054, 0, 0.329789, 0, 1, 0, -0.329789, 0, 0.944054, 1.862, 1.007, 1.112 )
-fov = 53.0
+transform = Transform( 0.944054, 0, 0.329789, 0, 1, 0, -0.329789, 0, 0.944054, 2.05669, 1.007, 1.66932 )
+fov = 60.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 19 )
