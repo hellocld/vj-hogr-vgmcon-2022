@@ -9,6 +9,16 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Spatial",
+"class": "CityTile",
+"language": "GDScript",
+"path": "res://Scenes/CityBuilder/CityTile.gd"
+}, {
+"base": "Resource",
+"class": "CityTileSet",
+"language": "GDScript",
+"path": "res://Scenes/CityBuilder/CityTileSet.gd"
+}, {
 "base": "Camera",
 "class": "LookAtCam",
 "language": "GDScript",
@@ -25,6 +35,8 @@ _global_script_classes=[ {
 "path": "res://Scenes/Tools/Rotator.gd"
 } ]
 _global_script_class_icons={
+"CityTile": "",
+"CityTileSet": "",
 "LookAtCam": "",
 "Pulser": "",
 "Rotator": ""

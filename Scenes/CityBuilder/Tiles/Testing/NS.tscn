@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Models/CityBuilder/TemplateTiles/TemplateTiles_Plane005.mesh" type="ArrayMesh" id=1]
+
+[node name="NS" type="Spatial"]
+
+[node name="TemplateTiles_Plane005" type="MeshInstance" parent="."]
+mesh = ExtResource( 1 )
+material/0 = null
