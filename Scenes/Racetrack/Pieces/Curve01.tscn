@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Models/Racetrack/Curve01/Curve01_Plane.mesh" type="ArrayMesh" id=1]
+[ext_resource path="res://Models/Racetrack/Curve01/Curve01_Cube002.mesh" type="ArrayMesh" id=2]
+
+[sub_resource type="Curve3D" id=1]
+_data = {
+"points": PoolVector3Array( -1.19764, 3.03984e-06, 27.3606, 1.19764, -3.03984e-06, -27.3606, 0.1, 0.7, 100.5, -0.407583, 0, 35.6418, 0.407583, 0, -35.6418, 6.5052, 0.800003, 44.1587, 0.534445, -6.13928e-06, 25.4572, -0.534445, 6.13928e-06, -25.4572, -10.4648, 0.899994, -27.6344, -3.10066, 0, 18.3256, 3.10066, 0, -18.3256, 0, 1, -99 ),
+"tilts": PoolRealArray( 0, 0, 0, 0 )
+}
+
+[sub_resource type="PrismMesh" id=2]
+size = Vector3( 2, 2, 1 )
+
+[node name="Curve01" type="Spatial"]
+
+[node name="Floor" type="MeshInstance" parent="."]
+mesh = ExtResource( 1 )
+material/0 = null
+
+[node name="Road" type="MeshInstance" parent="."]
+mesh = ExtResource( 2 )
+material/0 = null
+
+[node name="RoadPath" type="Path" parent="."]
+curve = SubResource( 1 )
+
+[node name="Car" type="PathFollow" parent="RoadPath"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.999992, 0.1, 0.7, 100.5 )
+rotation_mode = 0
+loop = false
+
+[node name="MeshInstance" type="MeshInstance" parent="RoadPath/Car"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -3.03984e-06, 0 )
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="SideCam" type="Camera" parent="RoadPath/Car"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1.00001, 1.17019, 0, 0.153282 )
+fov = 95.1
