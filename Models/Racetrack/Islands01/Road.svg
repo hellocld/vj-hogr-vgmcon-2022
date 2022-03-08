@@ -7,8 +7,8 @@
    id="svg922"
    sodipodi:docname="Road.svg"
    inkscape:export-filename="/home/crl/source/vj-hogr-vgmcon/Models/Racetrack/Islands01/Textures/Road.png"
-   inkscape:export-xdpi="300"
-   inkscape:export-ydpi="300"
+   inkscape:export-xdpi="48"
+   inkscape:export-ydpi="48"
    inkscape:version="1.1.2 (0a00cf5339, 2022-02-04, custom)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -62,7 +62,7 @@
        y1="344.73654"
        x2="502.06119"
        y2="344.73654"
-       gradientTransform="matrix(1.279835,0,0,1.4743467,-122.52517,-217.50391)" />
+       gradientTransform="matrix(1.279835,0,0,1.474346,-122.52517,-217.50381)" />
     <linearGradient
        inkscape:collect="always"
        xlink:href="#linearGradient12977"
@@ -192,12 +192,15 @@
      inkscape:label="Pavement"
      style="display:inline">
     <rect
-       style="fill:url(#linearGradient3174);fill-opacity:1;stroke-width:1.83108;stroke-linecap:round;stroke-linejoin:round;paint-order:markers fill stroke;stop-color:#000000;filter:url(#filter18246)"
+       style="fill:url(#linearGradient3174);fill-opacity:1;stroke-width:1.83108;stroke-linecap:round;stroke-linejoin:round;paint-order:markers fill stroke;filter:url(#filter18246);stop-color:#000000"
        id="rect2973"
        width="526.46906"
-       height="529.30225"
+       height="529.302"
        x="1.1670314"
-       y="-0.78082281" />
+       y="-0.78082281"
+       inkscape:export-filename="/home/crl/source/vj-hogr-vgmcon/Models/Racetrack/Islands01/Textures/Road.png"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300" />
     <rect
        style="display:inline;fill:#a6d422;fill-opacity:1;stroke:url(#linearGradient13412);stroke-width:1.84667;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1;paint-order:markers fill stroke;stop-color:#000000"
        id="rect3864-2-9-1-2"
