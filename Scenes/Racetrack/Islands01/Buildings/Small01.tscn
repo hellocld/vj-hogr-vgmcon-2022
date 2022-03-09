@@ -8,9 +8,11 @@
 script = ExtResource( 2 )
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
+use_in_baked_light = true
 mesh = ExtResource( 1 )
 material/0 = null
 
 [node name="MeshInstance2" type="MeshInstance" parent="."]
+use_in_baked_light = true
 mesh = ExtResource( 3 )
 material/0 = null
