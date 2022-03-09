@@ -37,7 +37,7 @@ script = ExtResource( 1 )
 __meta__ = {
 "_editor_description_": "Handles switching between scenes"
 }
-scene_list = [ "res://Scenes/LogoSplash/LogoSplash.tscn", "res://Scenes/MiniSculptures/MiniSculptures.tscn" ]
+scene_list = [ "res://Scenes/Racetrack/Islands01/Islands01.tscn", "res://Scenes/LogoSplash/LogoSplash.tscn", "res://Scenes/MiniSculptures/MiniSculptures.tscn" ]
 
 [node name="FadeInOut" type="CanvasLayer" parent="."]
 layer = -128
