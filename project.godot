@@ -30,6 +30,11 @@ _global_script_classes=[ {
 "path": "res://Scenes/Tools/Pulser.gd"
 }, {
 "base": "Spatial",
+"class": "RacetrackBuilding",
+"language": "GDScript",
+"path": "res://Scenes/Racetrack/Islands01/Buildings/RacetrackBuilding.gd"
+}, {
+"base": "Spatial",
 "class": "Rotator",
 "language": "GDScript",
 "path": "res://Scenes/Tools/Rotator.gd"
@@ -39,6 +44,7 @@ _global_script_class_icons={
 "CityTileSet": "",
 "LookAtCam": "",
 "Pulser": "",
+"RacetrackBuilding": "",
 "Rotator": ""
 }
 
@@ -57,6 +63,7 @@ SpectrumAnalyzer="*res://Autoloads/SpectrumAnalyzer/SpectrumAnalyzer.tscn"
 AutoThresholdSetter="*res://Autoloads/AutoThresholdSetter/AutoThresholdSetter.gd"
 CameraSwitcher="*res://Autoloads/CameraSwitcher/CameraSwitcher.gd"
 OptionsManager="*res://Autoloads/OptionsManager/OptionsManager.gd"
+RNG="*res://Autoloads/RNG/RNG.gd"
 
 [display]
 
@@ -169,7 +176,6 @@ scn_prev={
 [rendering]
 
 quality/filters/sharpen_intensity=0.5
-quality/driver/driver_name="GLES2"
 2d/snapping/use_gpu_pixel_snap=true
 quality/shadows/filter_mode=0
 quality/filters/anisotropic_filter_level=2
