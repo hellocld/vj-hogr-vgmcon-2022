@@ -1,11 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Models/Racetrack/Islands01/Buildings/Tower01_Cube001.mesh" type="ArrayMesh" id=1]
 [ext_resource path="res://Models/Racetrack/Islands01/Buildings/Tower01_Cube003.mesh" type="ArrayMesh" id=2]
-[ext_resource path="res://Scenes/Racetrack/Islands01/Buildings/RacetrackBuilding.gd" type="Script" id=3]
 
-[node name="Tower01" type="Spatial"]
-script = ExtResource( 3 )
+[node name="Tower01" type="Spatial" groups=["Highlightable"]]
 
 [node name="Base" type="MeshInstance" parent="."]
 use_in_baked_light = true

@@ -25,6 +25,11 @@ _global_script_classes=[ {
 "path": "res://Scenes/Tools/LookAtCam.gd"
 }, {
 "base": "Spatial",
+"class": "OrthoTile",
+"language": "GDScript",
+"path": "res://Scenes/OrthoBuildings/OrthoTile/OrthoTile.gd"
+}, {
+"base": "Spatial",
 "class": "Pulser",
 "language": "GDScript",
 "path": "res://Scenes/Tools/Pulser.gd"
@@ -43,6 +48,7 @@ _global_script_class_icons={
 "CityTile": "",
 "CityTileSet": "",
 "LookAtCam": "",
+"OrthoTile": "",
 "Pulser": "",
 "RacetrackBuilding": "",
 "Rotator": ""
@@ -64,6 +70,7 @@ AutoThresholdSetter="*res://Autoloads/AutoThresholdSetter/AutoThresholdSetter.gd
 CameraSwitcher="*res://Autoloads/CameraSwitcher/CameraSwitcher.gd"
 OptionsManager="*res://Autoloads/OptionsManager/OptionsManager.gd"
 RNG="*res://Autoloads/RNG/RNG.gd"
+HighlightManager="*res://Autoloads/HighlightManager/HighlightManager.gd"
 
 [display]
 
