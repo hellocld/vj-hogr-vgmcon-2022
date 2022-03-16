@@ -1,268 +1,39 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Scenes/OrthoBuildings/OrthoTile/OT_Small01.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Scenes/OrthoBuildings/OrthoSpawner.gd" type="Script" id=2]
-[ext_resource path="res://Scenes/OrthoBuildings/OrthoTile/OT_Small03.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/OrthoBuildings/OrthoTile/OT_Small02.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/OrthoBuildings/OrthoTile/OT_Tower02.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scenes/OrthoBuildings/OrthoTile/OT_Tower01.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Scenes/OrthoBuildings/OrthoTile/OT_Tower03.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/OrthoBuildings/OrthoSpawner.tscn" type="PackedScene" id=1]
 
-[sub_resource type="PlaneMesh" id=1]
+[sub_resource type="Environment" id=2]
 
 [node name="OrthoBuildings" type="Spatial"]
 
-[node name="OrthoSpawner" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, -16 )
-script = ExtResource( 2 )
-tileset = [ ExtResource( 1 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 7 ) ]
-tile_speed = 4.0
+[node name="OrthoSpawner" parent="." instance=ExtResource( 1 )]
 
-[node name="MeshInstance" type="MeshInstance" parent="OrthoSpawner"]
-mesh = SubResource( 1 )
-material/0 = null
-
-[node name="Despawn" type="Position3D" parent="OrthoSpawner"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 0, 0 )
-
-[node name="MeshInstance2" type="MeshInstance" parent="OrthoSpawner/Despawn"]
-mesh = SubResource( 1 )
-skeleton = NodePath("../..")
-material/0 = null
-
-[node name="OrthoSpawner9" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, -16 )
-script = ExtResource( 2 )
-tileset = [ ExtResource( 1 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 7 ) ]
-tile_speed = 4.0
-
-[node name="MeshInstance" type="MeshInstance" parent="OrthoSpawner9"]
-mesh = SubResource( 1 )
-material/0 = null
-
-[node name="Despawn" type="Position3D" parent="OrthoSpawner9"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 0, 0 )
-
-[node name="MeshInstance2" type="MeshInstance" parent="OrthoSpawner9/Despawn"]
-mesh = SubResource( 1 )
-skeleton = NodePath("../..")
-material/0 = null
-
-[node name="OrthoSpawner2" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, -13 )
-script = ExtResource( 2 )
-tileset = [ ExtResource( 1 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 7 ) ]
-tile_speed = 4.0
-
-[node name="MeshInstance" type="MeshInstance" parent="OrthoSpawner2"]
-mesh = SubResource( 1 )
-material/0 = null
-
-[node name="Despawn" type="Position3D" parent="OrthoSpawner2"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 0, 0 )
-
-[node name="MeshInstance2" type="MeshInstance" parent="OrthoSpawner2/Despawn"]
-mesh = SubResource( 1 )
-skeleton = NodePath("../..")
-material/0 = null
-
-[node name="OrthoSpawner3" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, -10 )
-script = ExtResource( 2 )
-tileset = [ ExtResource( 1 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 7 ) ]
-tile_speed = 4.0
-
-[node name="MeshInstance" type="MeshInstance" parent="OrthoSpawner3"]
-mesh = SubResource( 1 )
-material/0 = null
-
-[node name="Despawn" type="Position3D" parent="OrthoSpawner3"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 0, 0 )
-
-[node name="MeshInstance2" type="MeshInstance" parent="OrthoSpawner3/Despawn"]
-mesh = SubResource( 1 )
-skeleton = NodePath("../..")
-material/0 = null
-
-[node name="OrthoSpawner4" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, -7 )
-script = ExtResource( 2 )
-tileset = [ ExtResource( 1 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 7 ) ]
-tile_speed = 4.0
-
-[node name="MeshInstance" type="MeshInstance" parent="OrthoSpawner4"]
-mesh = SubResource( 1 )
-material/0 = null
-
-[node name="Despawn" type="Position3D" parent="OrthoSpawner4"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 0, 0 )
-
-[node name="MeshInstance2" type="MeshInstance" parent="OrthoSpawner4/Despawn"]
-mesh = SubResource( 1 )
-skeleton = NodePath("../..")
-material/0 = null
-
-[node name="OrthoSpawner5" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, -4 )
-script = ExtResource( 2 )
-tileset = [ ExtResource( 1 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 7 ) ]
-tile_speed = 4.0
-
-[node name="MeshInstance" type="MeshInstance" parent="OrthoSpawner5"]
-mesh = SubResource( 1 )
-material/0 = null
-
-[node name="Despawn" type="Position3D" parent="OrthoSpawner5"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 0, 0 )
-
-[node name="MeshInstance2" type="MeshInstance" parent="OrthoSpawner5/Despawn"]
-mesh = SubResource( 1 )
-skeleton = NodePath("../..")
-material/0 = null
-
-[node name="OrthoSpawner6" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, -1 )
-script = ExtResource( 2 )
-tileset = [ ExtResource( 1 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 7 ) ]
-tile_speed = 4.0
-
-[node name="MeshInstance" type="MeshInstance" parent="OrthoSpawner6"]
-mesh = SubResource( 1 )
-material/0 = null
-
-[node name="Despawn" type="Position3D" parent="OrthoSpawner6"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 0, 0 )
-
-[node name="MeshInstance2" type="MeshInstance" parent="OrthoSpawner6/Despawn"]
-mesh = SubResource( 1 )
-skeleton = NodePath("../..")
-material/0 = null
-
-[node name="OrthoSpawner7" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, -1 )
-script = ExtResource( 2 )
-tileset = [ ExtResource( 1 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 7 ) ]
-tile_speed = 4.0
-
-[node name="MeshInstance" type="MeshInstance" parent="OrthoSpawner7"]
-mesh = SubResource( 1 )
-material/0 = null
-
-[node name="Despawn" type="Position3D" parent="OrthoSpawner7"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 0, 0 )
-
-[node name="MeshInstance2" type="MeshInstance" parent="OrthoSpawner7/Despawn"]
-mesh = SubResource( 1 )
-skeleton = NodePath("../..")
-material/0 = null
-
-[node name="OrthoSpawner8" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, -1 )
-script = ExtResource( 2 )
-tileset = [ ExtResource( 1 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 7 ) ]
-tile_speed = 4.0
-
-[node name="MeshInstance" type="MeshInstance" parent="OrthoSpawner8"]
-mesh = SubResource( 1 )
-material/0 = null
-
-[node name="Despawn" type="Position3D" parent="OrthoSpawner8"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 0, 0 )
-
-[node name="MeshInstance2" type="MeshInstance" parent="OrthoSpawner8/Despawn"]
-mesh = SubResource( 1 )
-skeleton = NodePath("../..")
-material/0 = null
-
-[node name="OrthoSpawner10" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 2 )
-script = ExtResource( 2 )
-tileset = [ ExtResource( 1 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 7 ) ]
-tile_speed = 4.0
-
-[node name="MeshInstance" type="MeshInstance" parent="OrthoSpawner10"]
-mesh = SubResource( 1 )
-material/0 = null
-
-[node name="Despawn" type="Position3D" parent="OrthoSpawner10"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 0, 0 )
-
-[node name="MeshInstance2" type="MeshInstance" parent="OrthoSpawner10/Despawn"]
-mesh = SubResource( 1 )
-skeleton = NodePath("../..")
-material/0 = null
-
-[node name="OrthoSpawner11" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 5 )
-script = ExtResource( 2 )
-tileset = [ ExtResource( 1 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 7 ) ]
-tile_speed = 4.0
-
-[node name="MeshInstance" type="MeshInstance" parent="OrthoSpawner11"]
-mesh = SubResource( 1 )
-material/0 = null
-
-[node name="Despawn" type="Position3D" parent="OrthoSpawner11"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 0, 0 )
-
-[node name="MeshInstance2" type="MeshInstance" parent="OrthoSpawner11/Despawn"]
-mesh = SubResource( 1 )
-skeleton = NodePath("../..")
-material/0 = null
-
-[node name="OrthoSpawner12" type="Spatial" parent="."]
+[node name="OrthoSpawner2" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, -19 )
-script = ExtResource( 2 )
-tileset = [ ExtResource( 1 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 7 ) ]
-tile_speed = 4.0
 
-[node name="MeshInstance" type="MeshInstance" parent="OrthoSpawner12"]
-mesh = SubResource( 1 )
-material/0 = null
+[node name="OrthoSpawner3" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, -16 )
 
-[node name="Despawn" type="Position3D" parent="OrthoSpawner12"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 0, 0 )
+[node name="OrthoSpawner4" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, -13 )
 
-[node name="MeshInstance2" type="MeshInstance" parent="OrthoSpawner12/Despawn"]
-mesh = SubResource( 1 )
-skeleton = NodePath("../..")
-material/0 = null
+[node name="OrthoSpawner5" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, -10 )
 
-[node name="OrthoSpawner13" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, -22 )
-script = ExtResource( 2 )
-tileset = [ ExtResource( 1 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 7 ) ]
-tile_speed = 4.0
+[node name="OrthoSpawner6" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, -7 )
 
-[node name="MeshInstance" type="MeshInstance" parent="OrthoSpawner13"]
-mesh = SubResource( 1 )
-material/0 = null
+[node name="OrthoSpawner7" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, -4 )
 
-[node name="Despawn" type="Position3D" parent="OrthoSpawner13"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 0, 0 )
+[node name="OrthoSpawner8" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, -1 )
 
-[node name="MeshInstance2" type="MeshInstance" parent="OrthoSpawner13/Despawn"]
-mesh = SubResource( 1 )
-skeleton = NodePath("../..")
-material/0 = null
+[node name="OrthoSpawner9" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 2 )
 
-[node name="OrthoSpawner14" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 8 )
-script = ExtResource( 2 )
-tileset = [ ExtResource( 1 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 7 ) ]
-tile_speed = 4.0
-
-[node name="MeshInstance" type="MeshInstance" parent="OrthoSpawner14"]
-mesh = SubResource( 1 )
-material/0 = null
-
-[node name="Despawn" type="Position3D" parent="OrthoSpawner14"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 0, 0 )
-
-[node name="MeshInstance2" type="MeshInstance" parent="OrthoSpawner14/Despawn"]
-mesh = SubResource( 1 )
-skeleton = NodePath("../..")
-material/0 = null
+[node name="OrthoSpawner10" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 5 )
 
 [node name="MainCam" type="Camera" parent="." groups=["Cameras", "PrimaryCamera"]]
 transform = Transform( 1, 0, 0, 0, 0.877314, 0.479917, 0, -0.479917, 0.877314, 0, 13.5144, 19.884 )
@@ -274,7 +45,10 @@ transform = Transform( -3.78552e-08, 0.741004, -0.671501, 2.18557e-08, 0.671501,
 fov = 80.0
 size = 16.6722
 
-[node name="TrenchCam2" type="Camera" parent="." groups=["Cameras"]]
+[node name="BirdsEyeCam" type="Camera" parent="." groups=["Cameras"]]
 transform = Transform( -1.13133e-08, 0.998792, 0.0491462, 4.2222e-08, -0.0491462, 0.998792, 1, 1.33747e-08, -4.16149e-08, 4, 35, -8 )
 fov = 30.0
 size = 16.6722
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 2 )
