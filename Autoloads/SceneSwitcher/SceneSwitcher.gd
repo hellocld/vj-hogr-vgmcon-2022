@@ -24,6 +24,7 @@ func _process(_delta) -> void:
 	if loader_status == ERR_FILE_EOF and !loaded:
 		# we're finished, let's roll!
 		loaded = true
+		
 		next_scene = loader.get_resource()
 		_begin_switch_scene()
 
@@ -62,7 +63,8 @@ func _begin_switch_scene() -> void:
 
 # Once the animation finishes, change all the scene goodies behind the curtain
 func _swap_scene_and_fade_in() -> void:
-	for child in scene_root.get_children():
+	if scene_root.get_child_count() > 0:
+		var child = scene_root.get_child(0)
 		child.queue_free()
 	yield(get_tree(), "idle_frame")
 	var ns = next_scene.instance()

@@ -37,7 +37,7 @@ script = ExtResource( 1 )
 __meta__ = {
 "_editor_description_": "Handles switching between scenes"
 }
-scene_list = [ "res://Scenes/Racetrack/Islands01/Islands01.tscn", "res://Scenes/LogoSplash/LogoSplash.tscn", "res://Scenes/MiniSculptures/MiniSculptures.tscn" ]
+scene_list = [ "res://Scenes/LogoSplash/LogoSplash.tscn", "res://Scenes/MiniSculptures/MiniSculptures.tscn", "res://Scenes/OrthoBuildings/OrthoBuildings.tscn", "res://Scenes/Racetrack/Islands01/Islands01.tscn" ]
 
 [node name="FadeInOut" type="CanvasLayer" parent="."]
 layer = -128
@@ -49,9 +49,6 @@ __meta__ = {
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0, 0, 0, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="FadeInOut"]
 anims/FadeIn = SubResource( 1 )

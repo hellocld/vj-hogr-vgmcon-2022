@@ -15,12 +15,11 @@ func spawn_tile() -> void:
 	var t_scn = tileset.front()
 	var t = t_scn.instance() as OrthoTile
 	
-	t.spawner = self
 	t.speed = tile_speed
 	t.dist_to_spawn = dist_to_spawn
 	t.despawn_x = despawn.global_transform.origin.x
-	t.global_transform.origin = global_transform.origin
 	t.connect("ready_to_spawn", self, "spawn_tile")
 	
-	get_tree().get_root().add_child(t)
+	add_child(t)
+	t.global_transform.origin = global_transform.origin
 
