@@ -1,7 +1,10 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Sprites/hey.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/hey_border.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/LogoSplash/Hey.gd" type="Script" id=2]
+
+[sub_resource type="CanvasItemMaterial" id=2]
+blend_mode = 4
 
 [sub_resource type="Animation" id=1]
 resource_name = "New Anim"
@@ -43,6 +46,7 @@ render_target_update_mode = 3
 
 [node name="Sprite" type="Sprite" parent="Viewport"]
 modulate = Color( 1, 1, 1, 0 )
+material = SubResource( 2 )
 position = Vector2( 550, 330 )
 texture = ExtResource( 1 )
 
