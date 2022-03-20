@@ -28,8 +28,10 @@ func _input(event: InputEvent) -> void:
 	if mod_on:
 		if event.is_action_pressed("scn_next"):
 			_advance_scene(1)
+			get_tree().set_input_as_handled()
 		if event.is_action_pressed("scn_prev"):
 			_advance_scene(-1)
+			get_tree().set_input_as_handled()
 
 
 # Advances the index, triggers the loading of the new scene
