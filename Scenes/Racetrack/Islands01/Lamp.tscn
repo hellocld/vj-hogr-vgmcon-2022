@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Models/Racetrack/Islands01/Lamp.gltf" type="PackedScene" id=1]
+
+[node name="Lamp" type="PathFollow"]
+transform = Transform( 0.753177, -0.00176482, 0.657816, -1.16415e-10, 0.999996, 0.00268284, -0.657818, -0.00202065, 0.753174, 99.5316, 0.755103, 460.664 )
+rotation_mode = 4
+
+[node name="Lamp" type="Spatial" parent="." instance=ExtResource( 1 )]
+transform = Transform( 2.98023e-08, 0, -1, 0, 1, -6.98492e-10, 1, 0, 0, 0.735474, 0.836055, -6.10352e-05 )
+
+[node name="SpotLight" type="SpotLight" parent="Lamp"]
+transform = Transform( 1, -2.98023e-08, -2.98023e-08, 3.56231e-08, -0.408187, 0.912898, -2.98023e-08, -0.912898, -0.408187, -6.10352e-05, 0.0798324, 0.188049 )
+light_color = Color( 0.494118, 0.913725, 0.933333, 1 )
+light_energy = 10.0
+light_specular = 0.0
+spot_range = 3.04107
+spot_angle = 54.236
+
+[node name="OmniLight" type="OmniLight" parent="Lamp"]
+transform = Transform( 1, 0, -2.98023e-08, -2.32831e-10, 1, 8.14907e-10, -2.98023e-08, 0, 1, -0.00012207, 0.0812363, 0.213654 )
+light_color = Color( 0.494118, 0.913725, 0.933333, 1 )
+light_energy = 10.0
+light_specular = 1.0
+omni_range = 0.262207

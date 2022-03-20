@@ -13,6 +13,7 @@ var _sin_count := 0.0
 func _ready() -> void:
 	_target = get_node(look_target) as Spatial
 	_vert_offset = _car_model.transform.origin.y
+	unit_offset = rand_range(0.0, 1.0)
 
 func _process(delta: float) -> void:
 	_sin_count += delta
