@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Models/Racetrack/Islands01/Islands01.gltf" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Racetrack/Islands01/Car.gd" type="Script" id=2]
@@ -12,7 +12,6 @@
 [ext_resource path="res://Scenes/Racetrack/Islands01/Buildings/Small02.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Models/Racetrack/Islands01/Buildings/Small03.gltf" type="PackedScene" id=11]
 [ext_resource path="res://Models/Racetrack/Car/Car.gltf" type="PackedScene" id=12]
-[ext_resource path="res://Scenes/LogoSplash/BigLogo.tscn" type="PackedScene" id=13]
 
 [sub_resource type="ProceduralSky" id=1]
 sky_top_color = Color( 0.247059, 0.227451, 0.305882, 1 )
@@ -120,79 +119,79 @@ __meta__ = {
 Car = NodePath("../Car")
 
 [node name="Lamp" parent="Path" instance=ExtResource( 7 )]
-transform = Transform( -0.881553, 0.247301, -0.402126, 0.206947, 0.968042, 0.141653, 0.424308, 0.0416561, -0.904555, 303.555, 11.2715, 184.081 )
+transform = Transform( -0.881553, 0.247303, -0.402126, 0.206947, 0.968041, 0.141658, 0.424309, 0.0416603, -0.904554, 303.556, 11.2715, 184.081 )
 offset = 824.029
 
 [node name="Lamp2" parent="Path" instance=ExtResource( 7 )]
-transform = Transform( -0.768733, 0.195962, -0.608805, 0.182732, 0.979519, 0.0845531, 0.61291, -0.0462495, -0.788794, 295.609, 13.1377, 170 )
+transform = Transform( -0.768732, 0.195968, -0.608805, 0.182732, 0.979518, 0.0845626, 0.612911, -0.0462421, -0.788793, 295.609, 13.1377, 169.999 )
 offset = 840.347
 
 [node name="Lamp3" parent="Path" instance=ExtResource( 7 )]
-transform = Transform( -0.638272, 0.132738, -0.758276, 0.171491, 0.984785, 0.028039, 0.750466, -0.112141, -0.651322, 284.921, 13.9585, 159.118 )
+transform = Transform( -0.638316, 0.132745, -0.758238, 0.171492, 0.984785, 0.0280376, 0.750428, -0.112136, -0.651366, 284.921, 13.9585, 159.118 )
 offset = 855.644
 
 [node name="Lamp4" parent="Path" instance=ExtResource( 7 )]
-transform = Transform( -0.523511, 0.0667339, -0.849396, 0.171432, 0.984788, -0.0282876, 0.834593, -0.160423, -0.526986, 270.976, 13.958, 148.895 )
+transform = Transform( -0.523579, 0.0667508, -0.849353, 0.17143, 0.984789, -0.0282816, 0.834551, -0.160413, -0.527056, 270.976, 13.9579, 148.895 )
 offset = 872.982
 
 [node name="Lamp5" parent="Path" instance=ExtResource( 7 )]
-transform = Transform( 0.21049, 0.0392466, 0.976802, -0.182359, 0.98323, -0.000208653, -0.960437, -0.178085, 0.214116, 166.595, 29.3966, 226.16 )
+transform = Transform( 0.210476, 0.0392345, 0.976805, -0.182359, 0.98323, -0.000199154, -0.96044, -0.178088, 0.214101, 166.591, 29.3966, 226.159 )
 offset = 1109.07
 
 [node name="Lamp6" parent="Path" instance=ExtResource( 7 )]
-transform = Transform( 0.363482, 0.150984, 0.919278, -0.190442, 0.977983, -0.0853243, -0.911928, -0.144056, 0.38423, 193.968, 28.1661, 234.026 )
+transform = Transform( 0.363508, 0.150995, 0.919266, -0.190444, 0.977982, -0.0853303, -0.911917, -0.144052, 0.384257, 193.968, 28.1661, 234.026 )
 offset = 1137.63
 
 [node name="Lamp7" parent="Path" instance=ExtResource( 7 )]
-transform = Transform( 0.637454, 0.327142, 0.697583, -0.240747, 0.944623, -0.222997, -0.731911, -0.025791, 0.680907, 216.592, 24.5246, 246.962 )
+transform = Transform( 0.637522, 0.327183, 0.697502, -0.240769, 0.94461, -0.223028, -0.731844, -0.0257515, 0.68098, 216.596, 24.5235, 246.965 )
 offset = 1164.15
 
 [node name="Lamp8" parent="Path" instance=ExtResource( 7 )]
-transform = Transform( 0.168199, -0.0152333, -0.985627, -0.588366, 0.800691, -0.112779, 0.790907, 0.598884, 0.125712, -32.8385, 7.64626, -327.643 )
+transform = Transform( 0.16819, -0.015229, -0.985629, -0.588367, 0.800691, -0.11277, 0.790908, 0.598884, 0.125707, -32.8361, 7.64654, -327.644 )
 offset = 2191.63
 
 [node name="Lamp9" parent="Path" instance=ExtResource( 7 )]
-transform = Transform( 0.580996, 0.260849, -0.770968, -0.52948, 0.840543, -0.114622, 0.618138, 0.474811, 0.626462, -64.5498, 3.20646, -316.465 )
+transform = Transform( 0.581028, 0.260868, -0.770937, -0.529475, 0.840546, -0.114623, 0.618112, 0.474795, 0.6265, -64.5522, 3.20609, -316.463 )
 offset = 2225.8
 
 [node name="Lamp10" parent="Path" instance=ExtResource( 7 )]
-transform = Transform( 0.48622, 0.18811, -0.853342, -0.539445, 0.832875, -0.123766, 0.687451, 0.520513, 0.506431, -86.7058, 0.0108707, -297.302 )
+transform = Transform( 0.486115, 0.188035, -0.853418, -0.53946, 0.832864, -0.123774, 0.687513, 0.520558, 0.506301, -86.7041, 0.0111122, -297.303 )
 offset = 2255.37
 
 [node name="Lamp11" parent="Path" instance=ExtResource( 7 )]
-transform = Transform( -0.389468, -0.123367, -0.912732, -0.555461, 0.821954, 0.125919, 0.734696, 0.556033, -0.388647, -115.544, 0.905965, -301.455 )
+transform = Transform( -0.389513, -0.123409, -0.912708, -0.555455, 0.821959, 0.125909, 0.734677, 0.556016, -0.388708, -115.547, 0.906332, -301.456 )
 offset = 2286.48
 
 [node name="Lamp12" parent="Path" instance=ExtResource( 7 )]
-transform = Transform( 0.0892346, 0.202863, -0.975124, -0.624131, 0.77437, 0.103981, 0.776207, 0.599332, 0.195712, -148.032, 5.69476, -308.396 )
+transform = Transform( 0.0893554, 0.202969, -0.975091, -0.624144, 0.774359, 0.103988, 0.776183, 0.599311, 0.195873, -148.03, 5.69456, -308.397 )
 offset = 2320.64
 
 [node name="Lamp13" parent="Path" instance=ExtResource( 7 )]
-transform = Transform( 0.44132, 0.413668, -0.796307, -0.654401, 0.75556, 0.0298252, 0.614, 0.507946, 0.604142, -175.666, 8.05682, -294.952 )
+transform = Transform( 0.441495, 0.413797, -0.796143, -0.654407, 0.755555, 0.0298038, 0.613867, 0.507848, 0.60436, -175.668, 8.05691, -294.95 )
 offset = 2351.75
 
 [node name="Lamp14" parent="Path" instance=ExtResource( 7 )]
-transform = Transform( 0.44132, 0.413668, -0.796307, -0.654401, 0.75556, 0.0298252, 0.614, 0.507946, 0.604142, -175.666, 8.05682, -294.952 )
+transform = Transform( 0.441495, 0.413797, -0.796143, -0.654407, 0.755555, 0.0298038, 0.613867, 0.507848, 0.60436, -175.668, 8.05691, -294.95 )
 offset = 2351.75
 
 [node name="Lamp15" parent="Path" instance=ExtResource( 7 )]
-transform = Transform( 0.366581, 0.309208, -0.877493, -0.656089, 0.75464, -0.00816979, 0.659671, 0.578714, 0.479499, -207.096, 7.99784, -269.029 )
+transform = Transform( 0.366579, 0.30921, -0.877493, -0.656089, 0.75464, -0.00816739, 0.659672, 0.578713, 0.479499, -207.096, 7.99784, -269.03 )
 offset = 2392.54
 
 [node name="Lamp16" parent="Path" instance=ExtResource( 7 )]
-transform = Transform( 0.702732, 0.700473, 0.124522, -0.710238, 0.700933, 0.0652346, -0.041587, -0.134284, 0.990059, -117.686, 4.61746, 111.848 )
+transform = Transform( 0.702731, 0.700471, 0.124536, -0.710239, 0.700932, 0.065242, -0.0415918, -0.1343, 0.990057, -117.686, 4.6173, 111.846 )
 offset = 4648.42
 
 [node name="Lamp17" parent="Path" instance=ExtResource( 7 )]
-transform = Transform( 0.661076, 0.699302, 0.271945, -0.709642, 0.700442, -0.0760881, -0.243692, -0.142685, 0.959289, -110.513, 4.23102, 145.168 )
+transform = Transform( 0.661087, 0.699311, 0.271894, -0.709645, 0.700439, -0.0760834, -0.243654, -0.142652, 0.959304, -110.512, 4.23079, 145.171 )
 offset = 4682.59
 
 [node name="Lamp18" parent="Path" instance=ExtResource( 7 )]
-transform = Transform( 0.636588, 0.664292, 0.391752, -0.702904, 0.708778, -0.0596651, -0.317303, -0.237385, 0.918122, -99.5118, 1.47332, 176.744 )
+transform = Transform( 0.636586, 0.664291, 0.391756, -0.702904, 0.708778, -0.0596653, -0.317307, -0.237388, 0.91812, -99.5123, 1.47341, 176.742 )
 offset = 4716.24
 
 [node name="Lamp19" parent="Path" instance=ExtResource( 7 )]
-transform = Transform( 0.6331, 0.632731, 0.445906, -0.704493, 0.70968, -0.00677536, -0.320741, -0.309852, 0.895041, -87.3436, 0.785619, 204.801 )
+transform = Transform( 0.633078, 0.63271, 0.445967, -0.704492, 0.70968, -0.00677691, -0.320786, -0.309894, 0.89501, -87.3423, 0.785599, 204.803 )
 offset = 4746.84
 
 [node name="Buildings" type="Node" parent="."]
@@ -389,7 +388,5 @@ transform = Transform( 2.12132, 0, 2.12132, 0, 3, 0, -2.12132, 0, 2.12132, 35, 0
 
 [node name="Small24" parent="Buildings/Smalls" instance=ExtResource( 11 )]
 transform = Transform( 2.12132, 0, 2.12132, 0, 3, 0, -2.12132, 0, 2.12132, 25.0503, 0, 363.05 )
-
-[node name="BigLogo" parent="." instance=ExtResource( 13 )]
 
 [node name="Islands01" parent="." instance=ExtResource( 1 )]

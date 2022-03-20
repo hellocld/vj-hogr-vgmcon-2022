@@ -11,7 +11,7 @@ func _ready() -> void:
 
 func _process(_delta) -> void:
 	position.y = _y_pos + (sin(_delta) * 10)
-	if Input.is_action_just_pressed("controller_a"):
+	if Input.is_action_just_pressed("HoGR Logo"):
 		match _tree.get_current_node():
 			"RESET":
 				_tree.travel("Unfurl")

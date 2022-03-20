@@ -1,6 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Autoloads/SceneSwitcher/SceneSwitcher.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/LogoSplash/Hey.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/LogoSplash/BigLogo.tscn" type="PackedScene" id=3]
 
 [sub_resource type="Animation" id=1]
 resource_name = "FadeIn"
@@ -58,5 +60,9 @@ anims/FadeOut = SubResource( 2 )
 __meta__ = {
 "_editor_description_": "Parent Node for loaded viz"
 }
+
+[node name="Hey" parent="." instance=ExtResource( 2 )]
+
+[node name="BigLogo" parent="." instance=ExtResource( 3 )]
 
 [connection signal="animation_finished" from="FadeInOut/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

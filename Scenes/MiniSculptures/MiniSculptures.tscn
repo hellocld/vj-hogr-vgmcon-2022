@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Scenes/Tools/Rotator.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/MiniSculptures/EquaBand/EquaBand.tscn" type="PackedScene" id=2]
@@ -13,7 +13,6 @@
 [ext_resource path="res://Models/MiniSculptures/Landscape/Landscape.gltf" type="PackedScene" id=11]
 [ext_resource path="res://Scenes/Tools/LookAtCam.gd" type="Script" id=12]
 [ext_resource path="res://Scenes/MiniSculptures/CamPathFollow.gd" type="Script" id=13]
-[ext_resource path="res://Scenes/LogoSplash/BigLogo.tscn" type="PackedScene" id=14]
 
 [sub_resource type="PanoramaSky" id=18]
 panorama = ExtResource( 5 )
@@ -385,5 +384,3 @@ target = NodePath("../../../LookAtTarget")
 
 [node name="LookAtTarget" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
-
-[node name="BigLogo" parent="." instance=ExtResource( 14 )]
