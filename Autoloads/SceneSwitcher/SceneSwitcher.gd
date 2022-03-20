@@ -9,25 +9,15 @@ var loader
 var loaded = false
 var next_scene : PackedScene
 
+var _preloaded_scenes : Array
+
 onready var fade_in_out := $FadeInOut/AnimationPlayer
 onready var scene_root := $SceneRoot
 
 
 func _ready() -> void:
-	# Load the first scene
-	_begin_load_scene()
-
-
-func _process(_delta) -> void:
-	# keep tabs on the loader, and fire off when ready
-	var loader_status = loader.poll()
-	if loader_status == ERR_FILE_EOF and !loaded:
-		# we're finished, let's roll!
-		loaded = true
-		
-		next_scene = loader.get_resource()
-		_begin_switch_scene()
-
+	_load_all_scenes()
+	_begin_switch_scene()
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("scn_mode"):
@@ -49,12 +39,13 @@ func _advance_scene(dir) -> void:
 		scene_index = scene_list.size() - 1
 	if scene_index >= scene_list.size():
 		scene_index = 0
-	_begin_load_scene()
+	_begin_switch_scene()
 
 
-func _begin_load_scene() -> void:
-	loaded = false
-	loader = ResourceLoader.load_interactive(scene_list[scene_index])
+func _load_all_scenes() -> void:
+	for s in scene_list:
+		var pre = ResourceLoader.load(s)
+		_preloaded_scenes.append(pre)
 
 
 func _begin_switch_scene() -> void:
@@ -67,7 +58,7 @@ func _swap_scene_and_fade_in() -> void:
 		var child = scene_root.get_child(0)
 		child.queue_free()
 	yield(get_tree(), "idle_frame")
-	var ns = next_scene.instance()
+	var ns = _preloaded_scenes[scene_index].instance()
 	scene_root.add_child(ns)
 	CameraSwitcher.register_cameras()
 	CameraSwitcher.activate_current_camera()

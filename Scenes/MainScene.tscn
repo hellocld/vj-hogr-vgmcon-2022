@@ -40,7 +40,7 @@ __meta__ = {
 scene_list = [ "res://Scenes/LogoSplash/LogoSplash.tscn", "res://Scenes/MiniSculptures/MiniSculptures.tscn", "res://Scenes/OrthoBuildings/OrthoBuildings.tscn", "res://Scenes/Racetrack/Islands01/Islands01.tscn" ]
 
 [node name="FadeInOut" type="CanvasLayer" parent="."]
-layer = -128
+layer = 128
 __meta__ = {
 "_editor_description_": "Covers everything in the scene during transitions"
 }

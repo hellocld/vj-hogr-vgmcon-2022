@@ -1,0 +1,183 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://Scenes/LogoSplash/BigLogo.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/HOGR_pixe_animl.png" type="Texture" id=2]
+
+[sub_resource type="Animation" id=33]
+resource_name = "Furl"
+length = 0.26
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 6, 7, 8, 9, 10 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.25 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=32]
+resource_name = "Glint"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 6, 5, 4, 3, 2, 1, 0, 6 ]
+}
+
+[sub_resource type="Animation" id=28]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 10 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=29]
+resource_name = "Unfurl"
+length = 0.26
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 10, 9, 8, 7, 6 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="AnimationNodeAnimation" id=35]
+animation = "Furl"
+
+[sub_resource type="AnimationNodeAnimation" id=34]
+animation = "Glint"
+
+[sub_resource type="AnimationNodeAnimation" id=36]
+animation = "RESET"
+
+[sub_resource type="AnimationNodeAnimation" id=37]
+animation = "Unfurl"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=38]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=39]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=40]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=41]
+
+[sub_resource type="AnimationNodeStateMachine" id=30]
+states/Furl/node = SubResource( 35 )
+states/Furl/position = Vector2( 529, 171 )
+states/Glint/node = SubResource( 34 )
+states/Glint/position = Vector2( 597, 75 )
+states/RESET/node = SubResource( 36 )
+states/RESET/position = Vector2( 287, 80 )
+states/Unfurl/node = SubResource( 37 )
+states/Unfurl/position = Vector2( 447, 75 )
+transitions = [ "RESET", "Unfurl", SubResource( 38 ), "Unfurl", "Glint", SubResource( 39 ), "Glint", "Furl", SubResource( 40 ), "Furl", "Unfurl", SubResource( 41 ) ]
+start_node = "RESET"
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=31]
+
+[node name="BigLogo" type="ViewportContainer"]
+margin_top = 0.0675049
+margin_right = 1920.0
+margin_bottom = 1079.93
+stretch = true
+stretch_shrink = 2
+
+[node name="Viewport" type="Viewport" parent="."]
+size = Vector2( 960, 539 )
+transparent_bg = true
+handle_input_locally = false
+render_target_update_mode = 3
+
+[node name="BigLogo" type="Sprite" parent="Viewport"]
+visible = false
+position = Vector2( 256, 150 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 2 )
+hframes = 11
+frame = 10
+script = ExtResource( 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Viewport/BigLogo"]
+anims/Furl = SubResource( 33 )
+anims/Glint = SubResource( 32 )
+anims/RESET = SubResource( 28 )
+anims/Unfurl = SubResource( 29 )
+
+[node name="AnimationTree" type="AnimationTree" parent="Viewport/BigLogo"]
+tree_root = SubResource( 30 )
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/playback = SubResource( 31 )
