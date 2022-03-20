@@ -34,7 +34,8 @@ fog_enabled = true
 fog_color = Color( 0.247059, 0.227451, 0.305882, 1 )
 fog_sun_color = Color( 0.222607, 0.208878, 0.330078, 1 )
 fog_depth_begin = 25.0
-fog_depth_end = 200.0
+fog_depth_end = 400.0
+fog_depth_curve = 0.554785
 dof_blur_far_amount = 0.05
 dof_blur_far_quality = 0
 
