@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scenes/Tools/Rotator.gd" type="Script" id=1]
+[ext_resource path="res://Models/Racetrack/Islands01/Buildings/Giant01_Cube002.mesh" type="ArrayMesh" id=2]
+[ext_resource path="res://Models/Racetrack/Islands01/Buildings/Giant01_Cube001.mesh" type="ArrayMesh" id=3]
+
+[node name="Giant01" type="Spatial" groups=["Highlightable"]]
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+mesh = ExtResource( 3 )
+material/0 = null
+material/1 = null
+
+[node name="Rotator" type="Spatial" parent="."]
+script = ExtResource( 1 )
+rotation_amount = Vector3( 0, 3, 0 )
+
+[node name="MeshInstance2" type="MeshInstance" parent="Rotator"]
+mesh = ExtResource( 2 )
+skeleton = NodePath("../..")
+material/0 = null
+material/1 = null
