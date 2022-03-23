@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scenes/MiniSculptures/Materials/StoneMetalPurp.tres" type="Material" id=1]
+[ext_resource path="res://Scenes/Tools/Rotator.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/MiniSculptures/EquaBand/EquaBand.tscn" type="PackedScene" id=3]
 
 [sub_resource type="ArrayMesh" id=35]
 resource_name = "Landscape_Cube004"
@@ -17,8 +19,23 @@ surfaces/0 = {
 "vertex_count": 196
 }
 
+[sub_resource type="Animation" id=36]
+resource_name = "Flash"
+tracks/0/type = "value"
+tracks/0/path = NodePath("OmniLight:light_energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 1000.0, 10.0 ]
+}
+
 [node name="BigPyramid" type="MeshInstance"]
-transform = Transform( 7.07107, 0, 7.07107, 0, 10, 0, -7.07107, 0, 7.07107, -120, 26, 0 )
+transform = Transform( 7.07107, 0, 7.07107, 0, 10, 0, -7.07107, 0, 7.07107, 0, 0, 0 )
 mesh = SubResource( 35 )
 material/0 = null
 
@@ -28,3 +45,31 @@ light_color = Color( 0.909804, 0.792157, 0.00784314, 1 )
 light_energy = 1000.0
 light_specular = 3.171
 omni_range = 52.7503
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Flash = SubResource( 36 )
+
+[node name="Rotator" type="Spatial" parent="."]
+script = ExtResource( 2 )
+rotation_amount = Vector3( 0, 2, 0 )
+
+[node name="SpotLight" type="SpotLight" parent="Rotator"]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
+light_color = Color( 0.87451, 0, 1, 1 )
+light_energy = 500.0
+light_specular = 20.0
+spot_range = 100.0
+spot_attenuation = 0.307786
+spot_angle = 30.0
+
+[node name="SpotLight2" type="SpotLight" parent="Rotator"]
+transform = Transform( -0.1, 0, -7.45058e-09, 0, 0.1, 0, 7.45058e-09, 0, -0.1, 0, 0, 0 )
+light_color = Color( 0.87451, 0, 1, 1 )
+light_energy = 500.0
+light_specular = 20.0
+spot_range = 100.0
+spot_attenuation = 0.307786
+spot_angle = 30.0
+
+[node name="EquaBand" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.32997, 0 )

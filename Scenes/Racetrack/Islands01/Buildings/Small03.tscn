@@ -1,14 +1,5 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://Models/Racetrack/Islands01/Buildings/Small03_Cube001.mesh" type="ArrayMesh" id=2]
-[ext_resource path="res://Models/Racetrack/Islands01/Buildings/Small03_Cube002.mesh" type="ArrayMesh" id=3]
+[ext_resource path="res://Models/Racetrack/Islands01/Buildings/Small03.gltf" type="PackedScene" id=1]
 
-[node name="RacetrackBuilding" type="Spatial" groups=["Highlightable"]]
-
-[node name="MeshInstance" type="MeshInstance" parent="."]
-mesh = ExtResource( 3 )
-material/0 = null
-
-[node name="MeshInstance2" type="MeshInstance" parent="."]
-mesh = ExtResource( 2 )
-material/0 = null
+[node name="Small03" groups=["Highlightable"] instance=ExtResource( 1 )]

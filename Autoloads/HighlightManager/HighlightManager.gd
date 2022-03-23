@@ -29,9 +29,14 @@ func _process(delta: float) -> void:
 func configure_highlight_material(node:Node) -> void:
 	if node.is_in_group("Highlightable"):
 		var idx = randi() % _num_mats
-		for child in node.get_children():
-			if child is MeshInstance:
-				for mat_idx in range(0, child.mesh.get_surface_count()):
-					var mat = child.mesh.surface_get_material(mat_idx) as SpatialMaterial
-					if mat.resource_name == "Highlight":
-						child.mesh.surface_set_material(mat_idx, _mat_set[idx])
+		_set_child_material(node, idx)
+
+
+func _set_child_material(node:Node, idx) -> void:
+	for child in node.get_children():
+		if child is MeshInstance:
+			for mat_idx in range(0, child.mesh.get_surface_count()):
+				var mat = child.mesh.surface_get_material(mat_idx) as SpatialMaterial
+				if mat.resource_name == "Highlight":
+					child.mesh.surface_set_material(mat_idx, _mat_set[idx])
+		_set_child_material(child, idx)

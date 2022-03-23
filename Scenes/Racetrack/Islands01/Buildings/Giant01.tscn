@@ -13,7 +13,7 @@ material/1 = null
 
 [node name="Rotator" type="Spatial" parent="."]
 script = ExtResource( 1 )
-rotation_amount = Vector3( 0, 3, 0 )
+rotation_amount = Vector3( 0, 0.5, 0 )
 
 [node name="MeshInstance2" type="MeshInstance" parent="Rotator"]
 mesh = ExtResource( 2 )

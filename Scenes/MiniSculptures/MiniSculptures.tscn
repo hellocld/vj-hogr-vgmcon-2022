@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Scenes/Tools/Rotator.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/MiniSculptures/EquaBand/EquaBand.tscn" type="PackedScene" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://Scenes/MiniSculptures/CamPathFollow.gd" type="Script" id=13]
 [ext_resource path="res://Models/MiniSculptures/Landscape/Landscape_Plane002.mesh" type="ArrayMesh" id=14]
 [ext_resource path="res://Models/MiniSculptures/Landscape/Landscape_Cube004.mesh" type="ArrayMesh" id=15]
+[ext_resource path="res://Scenes/Shared/EnvParticles.tscn" type="PackedScene" id=16]
 
 [sub_resource type="PanoramaSky" id=18]
 panorama = ExtResource( 5 )
@@ -227,36 +228,6 @@ _data = {
 "tilts": PoolRealArray( 0, 0, 0, 0, 0 )
 }
 
-[sub_resource type="Gradient" id=29]
-offsets = PoolRealArray( 0, 0.193146, 0.794393, 1 )
-colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 0.501961, 1, 1, 1, 0.501961, 1, 1, 1, 0 )
-
-[sub_resource type="GradientTexture" id=30]
-gradient = SubResource( 29 )
-
-[sub_resource type="ParticlesMaterial" id=31]
-emission_shape = 2
-emission_box_extents = Vector3( 24, 12, 24 )
-direction = Vector3( 0, -1, 0 )
-spread = 0.0
-gravity = Vector3( 0, 0, 0 )
-initial_velocity = 0.1
-color_ramp = SubResource( 30 )
-
-[sub_resource type="SpatialMaterial" id=32]
-flags_transparent = true
-flags_unshaded = true
-vertex_color_use_as_albedo = true
-params_billboard_mode = 3
-params_billboard_keep_scale = true
-particles_anim_h_frames = 1
-particles_anim_v_frames = 1
-particles_anim_loop = false
-
-[sub_resource type="QuadMesh" id=33]
-material = SubResource( 32 )
-size = Vector2( 0.1, 0.1 )
-
 [node name="MiniSculptures" type="Spatial"]
 
 [node name="OrbitCams" type="Spatial" parent="."]
@@ -306,21 +277,22 @@ mesh = ExtResource( 15 )
 material/0 = null
 
 [node name="BigPyramid" parent="Landscape" instance=ExtResource( 11 )]
+transform = Transform( 7.07107, 0, 7.07107, 0, 10, 0, -7.07107, 0, 7.07107, -115.966, 22, -4.24264 )
 
 [node name="BigPyramid2" parent="Landscape" instance=ExtResource( 11 )]
-transform = Transform( 7.07107, 0, 7.07107, 0, 10, 0, -7.07107, 0, 7.07107, 61.0193, 26, -124.451 )
+transform = Transform( 7.07107, 0, 7.07107, 0, 10, 0, -7.07107, 0, 7.07107, 32.3558, 26, -131.276 )
 
 [node name="BigPyramid3" parent="Landscape" instance=ExtResource( 11 )]
-transform = Transform( 7.07107, 0, 7.07107, 0, 10, 0, -7.07107, 0, 7.07107, 114.759, 26, 84.8528 )
+transform = Transform( 7.07107, 0, 7.07107, 0, 10, 0, -7.07107, 0, 7.07107, 88.4842, 26, 93.7248 )
 
 [node name="BigPyramid4" parent="Landscape" instance=ExtResource( 11 )]
-transform = Transform( 14.1421, 0, 14.1421, 0, 20, 0, -14.1421, 0, 14.1421, 229.858, 58.8425, -49.0729 )
+transform = Transform( 14.1421, 0, 14.1421, 0, 20, 0, -14.1421, 0, 14.1421, 214.503, 58.8425, -33.7175 )
 
 [node name="BigPyramid5" parent="Landscape" instance=ExtResource( 11 )]
-transform = Transform( 14.1421, 0, 14.1421, 0, 20, 0, -14.1421, 0, 14.1421, -273.97, 58.8425, -164.909 )
+transform = Transform( 14.1421, 0, 14.1421, 0, 20, 0, -14.1421, 0, 14.1421, -226.198, 58.8425, -155.696 )
 
 [node name="BigPyramid6" parent="Landscape" instance=ExtResource( 11 )]
-transform = Transform( 14.1421, 0, 14.1421, 0, 20, 0, -14.1421, 0, 14.1421, -69.4609, 58.8425, 245.514 )
+transform = Transform( 14.1421, 0, 14.1421, 0, 20, 0, -14.1421, 0, 14.1421, -97.4419, 58.8425, 208.32 )
 
 [node name="BigPlane" type="MeshInstance" parent="Landscape"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.431067, -1.88425e-08 )
@@ -369,7 +341,7 @@ anims/Hide = SubResource( 26 )
 anims/Show = SubResource( 27 )
 
 [node name="CylinderDiscs" type="Spatial" parent="."]
-transform = Transform( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1.148, 0 )
+transform = Transform( 0.620184, 0, 0, 0, 0.620184, 0, 0, 0, 0.620184, 0, 1.14833, 0 )
 
 [node name="Rotator" type="Spatial" parent="CylinderDiscs"]
 transform = Transform( 1, 0, 0, 0, 1, -2.98023e-08, 0, 2.98023e-08, 1, 0, 0, 0 )
@@ -450,12 +422,10 @@ material/0 = null
 [node name="OmniLight" type="OmniLight" parent="CylinderDiscs/Rotator/Pulser/Rotator/Core"]
 transform = Transform( 1.61242, 0, 0, 0, 1.61242, -1.19209e-07, 0, 1.19209e-07, 1.61242, 0, 1.84851, 1.19209e-07 )
 light_color = Color( 0, 1, 0.694118, 1 )
-light_energy = 0.0
 
 [node name="OmniLight2" type="OmniLight" parent="CylinderDiscs/Rotator/Pulser/Rotator/Core"]
 transform = Transform( 1.61242, 0, 0, 0, 1.61242, -1.19209e-07, 0, 1.19209e-07, 1.61242, 0, -1.849, 0 )
 light_color = Color( 0.716667, 0, 1, 1 )
-light_energy = 0.0
 
 [node name="CylinderDiscsAnim" type="AnimationPlayer" parent="CylinderDiscs"]
 root_node = NodePath("../../SculptSwitcher")
@@ -482,14 +452,7 @@ target = NodePath("../../../LookAtTarget")
 [node name="LookAtTarget" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
 
-[node name="Particles" type="Particles" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.9893, 0 )
-amount = 128
-lifetime = 8.0
-preprocess = 128.0
-visibility_aabb = AABB( -24, -12, -24, 48, 24, 48 )
-process_material = SubResource( 31 )
-draw_pass_1 = SubResource( 33 )
+[node name="EnvParticles" parent="." instance=ExtResource( 16 )]
 
 [node name="OmniLight" type="OmniLight" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.78444, 0 )

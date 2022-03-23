@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=2]
+
+[sub_resource type="Gradient" id=29]
+offsets = PoolRealArray( 0, 0.193146, 0.794393, 1 )
+colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 0.501961, 1, 1, 1, 0.501961, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=30]
+gradient = SubResource( 29 )
+
+[sub_resource type="ParticlesMaterial" id=31]
+emission_shape = 2
+emission_box_extents = Vector3( 24, 12, 24 )
+direction = Vector3( 0, -1, 0 )
+spread = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 0.1
+color_ramp = SubResource( 30 )
+
+[sub_resource type="SpatialMaterial" id=32]
+flags_transparent = true
+flags_unshaded = true
+vertex_color_use_as_albedo = true
+params_billboard_mode = 3
+params_billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id=33]
+material = SubResource( 32 )
+size = Vector2( 0.1, 0.1 )
+
+[node name="EnvParticles" type="Particles"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.9893, 0 )
+amount = 128
+lifetime = 8.0
+preprocess = 128.0
+visibility_aabb = AABB( -24, -12, -24, 48, 24, 48 )
+process_material = SubResource( 31 )
+draw_pass_1 = SubResource( 33 )

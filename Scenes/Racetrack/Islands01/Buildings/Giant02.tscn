@@ -1,0 +1,83 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Models/Racetrack/Islands01/Buildings/Giant02_Cube012.mesh" type="ArrayMesh" id=1]
+[ext_resource path="res://Scenes/Tools/Rotator.gd" type="Script" id=2]
+[ext_resource path="res://Models/Racetrack/Islands01/Buildings/Giant02_Sphere002.mesh" type="ArrayMesh" id=3]
+[ext_resource path="res://Models/Racetrack/Islands01/Buildings/Giant02_Sphere005.mesh" type="ArrayMesh" id=4]
+[ext_resource path="res://Models/Racetrack/Islands01/Buildings/Giant02_Sphere004.mesh" type="ArrayMesh" id=5]
+[ext_resource path="res://Models/Racetrack/Islands01/Buildings/Giant02_Sphere.mesh" type="ArrayMesh" id=6]
+[ext_resource path="res://Models/Racetrack/Islands01/Buildings/Giant02_Sphere003.mesh" type="ArrayMesh" id=7]
+[ext_resource path="res://Models/Racetrack/Islands01/Buildings/Giant02_Sphere001.mesh" type="ArrayMesh" id=8]
+[ext_resource path="res://Models/Racetrack/Islands01/Buildings/Giant02_Cube001.mesh" type="ArrayMesh" id=9]
+
+[node name="Giant02" type="Spatial" groups=["Highlightable"]]
+
+[node name="Cube" type="MeshInstance" parent="."]
+transform = Transform( 0.742949, 0, 0, 0, 0.742949, 0, 0, 0, 0.742949, 0, 0.111351, 0 )
+mesh = ExtResource( 9 )
+material/0 = null
+material/1 = null
+
+[node name="Core" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
+mesh = ExtResource( 8 )
+material/0 = null
+
+[node name="Rotator" type="Spatial" parent="."]
+script = ExtResource( 2 )
+rotation_amount = Vector3( 0, 0.6, 0 )
+
+[node name="Sphere001" type="MeshInstance" parent="Rotator"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
+mesh = ExtResource( 3 )
+skeleton = NodePath("../..")
+material/0 = null
+material/1 = null
+
+[node name="Rotator2" type="Spatial" parent="."]
+script = ExtResource( 2 )
+rotation_amount = Vector3( 0, 0.7, 0 )
+
+[node name="Sphere002" type="MeshInstance" parent="Rotator2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
+mesh = ExtResource( 7 )
+skeleton = NodePath("../..")
+material/0 = null
+material/1 = null
+
+[node name="Rotator3" type="Spatial" parent="."]
+script = ExtResource( 2 )
+rotation_amount = Vector3( 0, 0.8, 0 )
+
+[node name="Sphere003" type="MeshInstance" parent="Rotator3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
+mesh = ExtResource( 5 )
+skeleton = NodePath("../..")
+material/0 = null
+material/1 = null
+
+[node name="Rotator4" type="Spatial" parent="."]
+script = ExtResource( 2 )
+rotation_amount = Vector3( 0, 0.9, 0 )
+
+[node name="Sphere004" type="MeshInstance" parent="Rotator4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
+mesh = ExtResource( 4 )
+skeleton = NodePath("../..")
+material/0 = null
+material/1 = null
+
+[node name="Rotator5" type="Spatial" parent="."]
+script = ExtResource( 2 )
+rotation_amount = Vector3( 0, 1, 0 )
+
+[node name="Sphere" type="MeshInstance" parent="Rotator5"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
+mesh = ExtResource( 6 )
+skeleton = NodePath("../..")
+material/0 = null
+material/1 = null
+
+[node name="Cube001" type="MeshInstance" parent="."]
+mesh = ExtResource( 1 )
+material/0 = null
