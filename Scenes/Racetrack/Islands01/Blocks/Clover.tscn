@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scenes/Racetrack/Islands01/Buildings/Small01.tscn" type="PackedScene" id=1]
+
+[node name="Clover" type="Spatial"]
+
+[node name="Small01" parent="." instance=ExtResource( 1 )]
+transform = Transform( 0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 1, 0, 1 )
+
+[node name="Small02" parent="." instance=ExtResource( 1 )]
+transform = Transform( -3.49691e-08, 0, 0.8, 0, 0.8, 0, -0.8, 0, -3.49691e-08, 1, 0, -1 )
+
+[node name="Small03" parent="." instance=ExtResource( 1 )]
+transform = Transform( -0.8, 0, -1.20797e-07, 0, 0.8, 0, 1.20797e-07, 0, -0.8, -1, 0, -1 )
+
+[node name="Small04" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1.55766e-07, 0, -0.8, 0, 0.8, 0, 0.8, 0, 1.55766e-07, -1, 0, 1 )

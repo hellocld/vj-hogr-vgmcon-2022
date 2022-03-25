@@ -1,0 +1,54 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/Racetrack/Islands01/Buildings/Tower03.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Racetrack/Islands01/Buildings/Small02.tscn" type="PackedScene" id=2]
+
+[node name="DiscPlant" type="Spatial"]
+
+[node name="Small" parent="." instance=ExtResource( 2 )]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0 )
+
+[node name="Small2" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -2, 0, -5 )
+
+[node name="Small3" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 2, 0, -5 )
+
+[node name="Tower" parent="." instance=ExtResource( 1 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -2, 0, 4 )
+
+[node name="Tower2" parent="." instance=ExtResource( 1 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 4 )
+
+[node name="Tower4" parent="." instance=ExtResource( 1 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -1, 0, 5 )
+
+[node name="Tower5" parent="." instance=ExtResource( 1 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1, 0, 5 )
+
+[node name="Tower3" parent="." instance=ExtResource( 1 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 2, 0, 4 )
+
+[node name="Tower6" parent="." instance=ExtResource( 1 )]
+transform = Transform( -2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, 4.1, 0, 2 )
+
+[node name="Tower7" parent="." instance=ExtResource( 1 )]
+transform = Transform( -2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, 4.1, 0, 4.76837e-07 )
+
+[node name="Tower8" parent="." instance=ExtResource( 1 )]
+transform = Transform( -2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, 5.1, 0, 1 )
+
+[node name="Tower9" parent="." instance=ExtResource( 1 )]
+transform = Transform( -2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, 5.1, 0, -1 )
+
+[node name="Tower10" parent="." instance=ExtResource( 1 )]
+transform = Transform( -2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, 4.1, 0, -2 )
+
+[node name="Tower11" parent="." instance=ExtResource( 1 )]
+transform = Transform( 7.54979e-08, 0, -1, 0, 1, 0, 1, 0, 7.54979e-08, -4.8, 0, -1.5 )
+
+[node name="Tower12" parent="." instance=ExtResource( 1 )]
+transform = Transform( 7.54979e-08, 0, -1, 0, 1, 0, 1, 0, 7.54979e-08, -4.8, 0, 1.5 )
+
+[node name="Tower13" parent="." instance=ExtResource( 1 )]
+transform = Transform( 7.54979e-08, 0, -1, 0, 1, 0, 1, 0, 7.54979e-08, -7.2, 0, 2.98023e-07 )
