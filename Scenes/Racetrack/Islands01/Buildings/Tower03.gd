@@ -7,7 +7,14 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("controller_b"):
-		_kaboom()
+		$Particles.emitting = true
+		$OmniLight/AnimationPlayer.stop(true)
+		$OmniLight/AnimationPlayer.play("Flash")
+	if event.is_action_released("controller_b"):
+		$Particles.emitting = false
+		$OmniLight/AnimationPlayer.stop(true)
+
+
 
 
 func _kaboom() -> void:

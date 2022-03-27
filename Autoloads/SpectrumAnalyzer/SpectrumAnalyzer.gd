@@ -10,7 +10,7 @@ var _freq_range := 44100.0 / 4
 var _min_db := 60
 var _peak_timer_time := 5.0
 var _peak_decrease_multiplier = 0.5
-
+var _smooth_sample_range = 16
 
 var _sample_timer : Timer
 var _peaks_timers : Array
@@ -19,6 +19,7 @@ var _peaks_descend : Array
 var sample_size := 16
 var samples : Array
 var peaks : Array
+var smooth_samples : Array
 var sample_trigger_thresholds : Array
 var sample_triggered : Array
 
@@ -33,10 +34,14 @@ func _ready() -> void:
 		peaks.append(0.0)
 		_peaks_descend.append(true)
 		_peaks_timers.append(null)
+		
 
 
 func _process(delta) -> void:
 	samples = _get_samples()
+	smooth_samples.append(samples.duplicate())
+	if smooth_samples.size() > _smooth_sample_range:
+		smooth_samples.pop_front()
 	_set_peaks()
 	_descend_peaks(delta)
 	for i in sample_size:
@@ -46,6 +51,8 @@ func _process(delta) -> void:
 		if samples[i] < sample_trigger_thresholds[i] && sample_triggered[i]:
 			emit_signal("sample_detriggered", i)
 			sample_triggered[i] = false
+
+
 
 
 # Acquires all samples from the audio bus and returns the normalized values
@@ -72,6 +79,15 @@ func get_peak(idx:int) -> float:
 		if peaks[idx] != null:
 			return peaks[idx]
 	return 0.0
+
+
+func get_smooth_sample(idx:int) -> float:
+	var x = 0.0
+	if idx < sample_size:
+		for i in smooth_samples:
+			x += i[idx]
+		x /= smooth_samples.size()
+	return x
 
 
 func get_normalized_sample(idx:int) -> float:
