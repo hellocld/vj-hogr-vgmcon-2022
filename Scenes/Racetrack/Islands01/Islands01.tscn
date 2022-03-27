@@ -1,15 +1,14 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://Models/Racetrack/Islands01/Islands01.gltf" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Racetrack/Islands01/Car.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/Racetrack/Islands01/Islands01_Path.tres" type="Curve3D" id=3]
-[ext_resource path="res://Scenes/Racetrack/Islands01/Buildings/Tower01.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/Racetrack/Islands01/Buildings/Small01.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Racetrack/Islands01/Blocks/Clover.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Racetrack/Islands01/Blocks/ComboSmall01.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Racetrack/Islands01/CarTarget.gd" type="Script" id=6]
 [ext_resource path="res://Scenes/Racetrack/Islands01/Lamp.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Scenes/Racetrack/Islands01/Buildings/Tower03.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Scenes/Racetrack/Islands01/Buildings/Tower02.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Scenes/Racetrack/Islands01/Buildings/Small02.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/Racetrack/Islands01/RingEmitter.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Racetrack/Islands01/Blocks/AngularFactory.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/Racetrack/Islands01/Blocks/Block01.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Models/Racetrack/Car/Car.gltf" type="PackedScene" id=12]
 [ext_resource path="res://Scenes/Racetrack/Islands01/Blocks/Spire.tscn" type="PackedScene" id=13]
@@ -114,7 +113,7 @@ __meta__ = {
 }
 
 [node name="Car" type="PathFollow" parent="Path"]
-transform = Transform( 0.999999, 0, 0, 0, 1, 0, 0, 0, 1, 99.5316, 0.755103, 460.664 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 99.5316, 0.755103, 460.664 )
 rotation_mode = 0
 cubic_interp = false
 script = ExtResource( 2 )
@@ -134,7 +133,7 @@ fov = 95.0
 far = 400.0
 
 [node name="CarImport" parent="Path/Car/Car" instance=ExtResource( 12 )]
-transform = Transform( -0.05, 0, -4.37114e-09, 0, 0.05, 0, 4.37114e-09, 0, -0.05, 0, 0, 0 )
+transform = Transform( -0.05, 0, -4.37114e-09, 0, 0.05, 0, 4.37114e-09, 0, -0.05, 0, -0.077, 0 )
 
 [node name="OmniLight" type="OmniLight" parent="Path/Car/Car/CarImport"]
 transform = Transform( 20, 0, 3.86535e-12, 0, 20, 0, 0, 0, 20, 0, -0.585901, -3.32812 )
@@ -148,8 +147,8 @@ transform = Transform( 20, 6.10304e-09, 3.4969e-06, -6.10328e-09, -19.9999, 0.06
 light_color = Color( 0.607843, 0.109804, 0.976471, 1 )
 light_energy = 10.0
 light_specular = 0.3
-spot_angle = 65.6126
-spot_angle_attenuation = 1.51572
+spot_range = 11.5063
+spot_angle = 43.3965
 
 [node name="EnvParticles" type="Particles" parent="Path/Car/Car/CarImport"]
 transform = Transform( -20, 0, 1.74846e-06, 0, 20, 0, -1.74846e-06, 0, -20, 0, 0, 128 )
@@ -180,6 +179,11 @@ far = 400.0
 transform = Transform( -1, 1.49012e-07, 0, 0, -4.37114e-08, 1, 1.49012e-07, 1, 4.37114e-08, 0, 4.09588, 0 )
 fov = 95.0
 far = 400.0
+
+[node name="RingEmitter" parent="Path" instance=ExtResource( 8 )]
+transform = Transform( 0.765375, 0.000501739, 0.643583, 2.50792e-05, 1, -0.000809426, -0.643583, 0.000635656, 0.765375, 99.5316, 0.755103, 460.664 )
+rotation_mode = 0
+carPath = NodePath("../Car")
 
 [node name="CarTarget" type="PathFollow" parent="Path"]
 transform = Transform( 0.765375, 0.000501739, 0.643583, 2.50792e-05, 1, -0.000809426, -0.643583, 0.000635656, 0.765375, 100.182, 0.756441, 461.419 )
@@ -328,132 +332,41 @@ offset = 2392.54
 rotation_mode = 0
 
 [node name="Lamp16" parent="Path" instance=ExtResource( 7 )]
-transform = Transform( 0.986398, 7.18512e-09, 0.164374, -7.18511e-09, 1, -5.94569e-10, -0.164376, -5.94576e-10, 0.986387, -114.063, 4.99577, 131.728 )
+transform = Transform( 0.986398, 7.18512e-09, 0.164374, -7.18511e-09, 1, -5.94569e-10, -0.164376, -5.94576e-10, 0.986387, -113.621, 4.93229, 133.536 )
 offset = 4648.42
 rotation_mode = 0
 
 [node name="Lamp32" parent="Path" instance=ExtResource( 7 )]
-transform = Transform( 0.942903, 1.45588e-08, 0.333063, -1.45588e-08, 1, -2.49575e-09, -0.333066, -2.49578e-09, 0.942893, -109.784, 4.0228, 147.71 )
+transform = Transform( 0.942903, 1.45588e-08, 0.333063, -1.45588e-08, 1, -2.49575e-09, -0.333066, -2.49578e-09, 0.942893, -109.263, 3.86942, 149.491 )
 offset = 4665.0
 rotation_mode = 0
 
 [node name="Lamp17" parent="Path" instance=ExtResource( 7 )]
-transform = Transform( 0.95659, 1.27391e-08, 0.291434, -1.27391e-08, 1, -1.89749e-09, -0.291437, -1.89751e-09, 0.95658, -104.463, 2.47483, 164.393 )
+transform = Transform( 0.95659, 1.27391e-08, 0.291434, -1.27391e-08, 1, -1.89749e-09, -0.291437, -1.89751e-09, 0.95658, -103.82, 2.3096, 166.175 )
 offset = 4682.59
 rotation_mode = 0
 
 [node name="Lamp33" parent="Path" instance=ExtResource( 7 )]
-transform = Transform( 0.91991, 1.71405e-08, 0.392124, -1.71405e-08, 1, -3.50079e-09, -0.392128, -3.50082e-09, 0.919901, -97.9948, 1.25256, 180.367 )
+transform = Transform( 0.91991, 1.71405e-08, 0.392124, -1.71405e-08, 1, -3.50079e-09, -0.392128, -3.50082e-09, 0.919901, -97.2698, 1.15764, 182.145 )
 offset = 4699.9
 rotation_mode = 0
 
 [node name="Lamp18" parent="Path" instance=ExtResource( 7 )]
-transform = Transform( 0.934235, 1.559e-08, 0.356652, -1.55899e-08, 1, -2.87462e-09, -0.356656, -2.87466e-09, 0.934225, -91.7633, 0.818517, 195.459 )
+transform = Transform( 0.934235, 1.559e-08, 0.356652, -1.55899e-08, 1, -2.87462e-09, -0.356656, -2.87466e-09, 0.934225, -90.9621, 0.81455, 197.22 )
 offset = 4716.24
 rotation_mode = 0
 
 [node name="Lamp34" parent="Path" instance=ExtResource( 7 )]
-transform = Transform( 0.887469, 2.01451e-08, 0.460861, -2.01451e-08, 1, -4.9188e-09, -0.460866, -4.91886e-09, 0.88746, -85.1571, 0.749759, 209.048 )
+transform = Transform( 0.887469, 2.01451e-08, 0.460861, -2.01451e-08, 1, -4.9188e-09, -0.460866, -4.91886e-09, 0.88746, -84.2014, 0.734464, 210.815 )
 offset = 4731.39
 rotation_mode = 0
 
 [node name="Lamp19" parent="Path" instance=ExtResource( 7 )]
-transform = Transform( 0.890293, 1.99057e-08, 0.455384, -1.99057e-08, 1, -4.79542e-09, -0.45539, -4.79548e-09, 0.890282, -77.378, 0.681514, 222.396 )
+transform = Transform( 0.890293, 1.99057e-08, 0.455384, -1.99057e-08, 1, -4.79542e-09, -0.45539, -4.79548e-09, 0.890282, -76.3149, 0.681098, 224.109 )
 offset = 4746.84
 rotation_mode = 0
 
 [node name="Buildings" type="Node" parent="."]
-
-[node name="Towers" type="Node" parent="Buildings"]
-
-[node name="Tower01" parent="Buildings/Towers" instance=ExtResource( 4 )]
-transform = Transform( -4.86742, 0, -3.5083, 0, 6, 0, 3.5083, 0, -4.86742, 121.611, 0, 430.801 )
-
-[node name="Tower04" parent="Buildings/Towers" instance=ExtResource( 4 )]
-transform = Transform( 3.5083, 0, -4.86742, 0, 6, 0, 4.86742, 0, 3.5083, 140.611, 0, 417.801 )
-
-[node name="Tower05" parent="Buildings/Towers" instance=ExtResource( 4 )]
-transform = Transform( 4.86742, 0, 3.5083, 0, 6, 0, -3.5083, 0, 4.86742, 118.611, 0, 404.801 )
-
-[node name="Tower02" parent="Buildings/Towers" instance=ExtResource( 4 )]
-transform = Transform( -3.4358, 0, -4.91887, 0, 6, 0, 4.91887, 0, -3.4358, 265.952, 0, 430.801 )
-
-[node name="Tower03" parent="Buildings/Towers" instance=ExtResource( 4 )]
-transform = Transform( -4.23753, 0, 4.24775, 0, 6, 0, -4.24775, 0, -4.23753, 199.412, 0, 377.91 )
-
-[node name="Tower" parent="Buildings/Towers" instance=ExtResource( 8 )]
-transform = Transform( 12, 0, 0, 0, 12, 0, 0, 0, 12, 114.631, 0, 280.648 )
-
-[node name="Tower3" parent="Buildings/Towers" instance=ExtResource( 9 )]
-transform = Transform( 12, 0, 0, 0, 12, 0, 0, 0, 12, -65.8673, 1.03289, -57.2596 )
-
-[node name="Smalls" type="Node" parent="Buildings"]
-
-[node name="Small01" parent="Buildings/Smalls" instance=ExtResource( 5 )]
-transform = Transform( -1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, 152.189, 0, 429.27 )
-
-[node name="Small53" parent="Buildings/Smalls" instance=ExtResource( 5 )]
-transform = Transform( -1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, -117.043, 0, -381.155 )
-
-[node name="Small54" parent="Buildings/Smalls" instance=ExtResource( 5 )]
-transform = Transform( -1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, -106.465, 0, -388.321 )
-
-[node name="Small55" parent="Buildings/Smalls" instance=ExtResource( 5 )]
-transform = Transform( -1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, -107.83, 0, -379.108 )
-
-[node name="Small56" parent="Buildings/Smalls" instance=ExtResource( 5 )]
-transform = Transform( -1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, -97.5927, 0, -363.411 )
-
-[node name="Small57" parent="Buildings/Smalls" instance=ExtResource( 5 )]
-transform = Transform( -1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, -117.384, 0, -354.881 )
-
-[node name="Small58" parent="Buildings/Smalls" instance=ExtResource( 5 )]
-transform = Transform( -1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, -255.583, 0, -343.279 )
-
-[node name="Small59" parent="Buildings/Smalls" instance=ExtResource( 5 )]
-transform = Transform( -1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, -304.72, 0, -412.549 )
-
-[node name="Small02" parent="Buildings/Smalls" instance=ExtResource( 5 )]
-transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 161.189, 0, 426.27 )
-
-[node name="Small03" parent="Buildings/Smalls" instance=ExtResource( 5 )]
-transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 134.218, 0, 296.289 )
-
-[node name="Small07" parent="Buildings/Smalls" instance=ExtResource( 5 )]
-transform = Transform( -1.31134e-07, 0, 3, 0, 3, 0, -3, 0, -1.31134e-07, 134.671, 0, 282.289 )
-
-[node name="Small08" parent="Buildings/Smalls" instance=ExtResource( 5 )]
-transform = Transform( 3, 0, -1.59872e-13, 0, 3, 0, 1.59872e-13, 0, 3, 134.671, 0, 267.289 )
-
-[node name="Small09" parent="Buildings/Smalls" instance=ExtResource( 5 )]
-transform = Transform( -3, 0, 0, 0, 3, 0, 0, 0, -3, 103.256, 0, 298.975 )
-
-[node name="Small10" parent="Buildings/Smalls" instance=ExtResource( 5 )]
-transform = Transform( 0, 0, -3, 0, 3, 0, 3, 0, 0, 94.6763, 0, 298.755 )
-
-[node name="Small11" parent="Buildings/Smalls" instance=ExtResource( 5 )]
-transform = Transform( -3, 0, 0, 0, 3, 0, 0, 0, -3, 95.0697, 0, 290.149 )
-
-[node name="Small04" parent="Buildings/Smalls" instance=ExtResource( 5 )]
-transform = Transform( -3, 0, -4.52987e-07, 0, 3, 0, 4.52987e-07, 0, -3, 197.189, 0, 433.27 )
-
-[node name="Small05" parent="Buildings/Smalls" instance=ExtResource( 5 )]
-transform = Transform( -1.31134e-07, 0, 3, 0, 3, 0, -3, 0, -1.31134e-07, 205.189, 0, 435.27 )
-
-[node name="Small06" parent="Buildings/Smalls" instance=ExtResource( 5 )]
-transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 213.189, 0, 438.27 )
-
-[node name="Small" parent="Buildings/Smalls" instance=ExtResource( 10 )]
-transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, -76.3372, 0, -45.8023 )
-
-[node name="Small2" parent="Buildings/Smalls" instance=ExtResource( 10 )]
-transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, -104.292, 0, -129.021 )
-
-[node name="Small3" parent="Buildings/Smalls" instance=ExtResource( 10 )]
-transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, -110.292, 0, -139.021 )
-
-[node name="Small4" parent="Buildings/Smalls" instance=ExtResource( 10 )]
-transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, -116.292, 0, -149.021 )
 
 [node name="Block01" parent="Buildings" instance=ExtResource( 11 )]
 transform = Transform( -10, 0, -1.50996e-06, 0, 10, 0, 1.50996e-06, 0, -10, -53.2848, 0, -214.284 )
@@ -508,6 +421,42 @@ transform = Transform( -3, 0, -4.52987e-07, 0, 3, 0, 4.52987e-07, 0, -3, 339, 0,
 
 [node name="DiscPlant5" parent="Buildings" instance=ExtResource( 18 )]
 transform = Transform( 4.33013, 0, -2.5, 0, 5, 0, 2.5, 0, 4.33013, 238.371, 0, 47.8397 )
+
+[node name="ComboSmall01" parent="Buildings" instance=ExtResource( 5 )]
+transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, -96, 0, -95 )
+
+[node name="CloverBlock9" parent="Buildings" instance=ExtResource( 17 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -105, 0, -67 )
+
+[node name="CloverBlock10" parent="Buildings" instance=ExtResource( 17 )]
+transform = Transform( 7.54979e-08, 0, -1, 0, 1, 0, 1, 0, 7.54979e-08, -112, 0, -124 )
+
+[node name="AngularFactory" parent="Buildings" instance=ExtResource( 9 )]
+transform = Transform( -2, 0, -3.01992e-07, 0, 2, 0, 3.01992e-07, 0, -2, -49.6475, 0, 227.552 )
+
+[node name="AngularFactory4" parent="Buildings" instance=ExtResource( 9 )]
+transform = Transform( -1.14715, 0, -1.6383, 0, 2, 0, 1.6383, 0, -1.14715, -2.74503, 0, 266.428 )
+
+[node name="AngularFactory5" parent="Buildings" instance=ExtResource( 9 )]
+transform = Transform( 1.41421, 0, 1.41421, 0, 2, 0, -1.41421, 0, 1.41421, 43.6558, 0, 338.914 )
+
+[node name="Clover6" parent="Buildings" instance=ExtResource( 4 )]
+transform = Transform( -2, 0, -3.01992e-07, 0, 2, 0, 3.01992e-07, 0, -2, -36.5, 0, -99.7 )
+
+[node name="Clover7" parent="Buildings" instance=ExtResource( 4 )]
+transform = Transform( -2, 0, -3.01992e-07, 0, 2, 0, 3.01992e-07, 0, -2, -46.5, 0, -84.7 )
+
+[node name="AngularFactory2" parent="Buildings" instance=ExtResource( 9 )]
+transform = Transform( -1.34825, 0, -3.76593, 0, 4, 0, 3.76593, 0, -1.34825, 110.008, 0, 181.188 )
+
+[node name="AngularFactory3" parent="Buildings" instance=ExtResource( 9 )]
+transform = Transform( 3.45118, 0, 2.02221, 0, 4, 0, -2.02221, 0, 3.45118, 180.36, 0, 94.4406 )
+
+[node name="Clover8" parent="Buildings" instance=ExtResource( 4 )]
+transform = Transform( -2, 0, -3.01992e-07, 0, 2, 0, 3.01992e-07, 0, -2, -0.499996, 0, -67.7001 )
+
+[node name="CloverBlock11" parent="Buildings" instance=ExtResource( 17 )]
+transform = Transform( -1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, -20.5, 0, -93.7 )
 
 [node name="Islands01" parent="." instance=ExtResource( 1 )]
 

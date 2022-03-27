@@ -1,0 +1,51 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scenes/Tools/Rotator.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Racetrack/Islands01/EmittedRing.gd" type="Script" id=2]
+[ext_resource path="res://Models/MiniSculptures/Elements/Elements_GlowRing.mesh" type="ArrayMesh" id=3]
+
+[sub_resource type="Animation" id=42]
+resource_name = "New Anim"
+length = 5.0
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "queue_free"
+} ]
+}
+tracks/1/type = "transform"
+tracks/1/path = NodePath("Spatial/Rotator/MeshInstance")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = PoolRealArray( 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 2, 2, 2, 4, 1, 0, 0, 0, 0, 0, 0, 1, 2, 2, 2, 5, 1, 0, 0, 0, 0, 0, 0, 1, 0, 50, 0 )
+
+[node name="EmittedRing" type="Spatial" groups=["Highlightable"]]
+script = ExtResource( 2 )
+
+[node name="Spatial" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
+
+[node name="Rotator" type="Spatial" parent="Spatial"]
+script = ExtResource( 1 )
+rotation_amount = Vector3( 0, 2, 0 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Spatial/Rotator"]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0 )
+mesh = ExtResource( 3 )
+skeleton = NodePath("../../../..")
+material/0 = null
+material/1 = null
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Spatial/Rotator"]
+root_node = NodePath("../../..")
+"anims/New Anim" = SubResource( 42 )

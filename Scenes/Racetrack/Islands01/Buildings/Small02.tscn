@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
+[ext_resource path="res://Scenes/Tools/Rotator.gd" type="Script" id=1]
 [ext_resource path="res://Models/Racetrack/Islands01/Buildings/Small02_Sphere.mesh" type="ArrayMesh" id=2]
 [ext_resource path="res://Models/Racetrack/Islands01/Buildings/Small02_Cube001.mesh" type="ArrayMesh" id=3]
 [ext_resource path="res://Models/Racetrack/Islands01/Buildings/Small02_Circle001.mesh" type="ArrayMesh" id=4]
@@ -7,10 +8,19 @@
 
 [node name="Small" type="Spatial" groups=["Highlightable"]]
 
-[node name="Disc" type="MeshInstance" parent="."]
-mesh = ExtResource( 4 )
-material/0 = null
+[node name="DiscRot" type="Spatial" parent="."]
+script = ExtResource( 1 )
+rotation_amount = Vector3( 0, 1, 0 )
+
+[node name="Disc" type="Spatial" parent="DiscRot"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0 )
 script = ExtResource( 5 )
+
+[node name="Disc" type="MeshInstance" parent="DiscRot/Disc"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.5, 0 )
+mesh = ExtResource( 4 )
+skeleton = NodePath("../../..")
+material/0 = null
 
 [node name="MeshInstance2" type="MeshInstance" parent="."]
 mesh = ExtResource( 3 )

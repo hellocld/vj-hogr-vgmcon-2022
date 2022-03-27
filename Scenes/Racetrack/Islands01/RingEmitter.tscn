@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scenes/Racetrack/Islands01/RingEmitter.gd" type="Script" id=3]
+
+[node name="RingEmitter" type="PathFollow"]
+transform = Transform( 0.765375, 0.000501739, 0.643583, 2.50792e-05, 1, -0.000809426, -0.643583, 0.000635656, 0.765375, 100.182, 0.756441, 461.419 )
+rotation_mode = 4
+script = ExtResource( 3 )
+RingScene = "res://Scenes/Racetrack/Islands01/EmittedRing.tscn"
