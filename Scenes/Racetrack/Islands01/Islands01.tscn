@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://Models/Racetrack/Islands01/Islands01.gltf" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Racetrack/Islands01/Car.gd" type="Script" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Scenes/Racetrack/Islands01/RingEmitter.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/Tools/Rotator.gd" type="Script" id=8]
 [ext_resource path="res://Scenes/Racetrack/Islands01/Blocks/AngularFactory.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/Racetrack/Islands01/Buildings/Tower01.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Scenes/Racetrack/Islands01/Blocks/Block01.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Models/Racetrack/Car/Car.gltf" type="PackedScene" id=12]
 [ext_resource path="res://Scenes/Racetrack/Islands01/Blocks/Spire.tscn" type="PackedScene" id=13]
@@ -186,7 +187,7 @@ script = ExtResource( 8 )
 rotation_amount = Vector3( 0, 0.25, 0 )
 
 [node name="CamRear2" type="Camera" parent="Path/Car/OrbiterCam" groups=["Cameras", "PrimaryCamera"]]
-transform = Transform( 1, -7.51002e-08, 2.24191e-07, 0, 0.948213, 0.317636, -2.36435e-07, -0.317636, 0.948213, 0, 1.27498, 2.18823 )
+transform = Transform( 1, -7.51002e-08, 2.24191e-07, 0, 0.948213, 0.317636, -2.36435e-07, -0.317636, 0.948213, 0, 2.57685, 3.47327 )
 fov = 95.0
 far = 400.0
 
@@ -220,6 +221,9 @@ transform = Transform( -0.494336, 0, 3.96934, 0, 4, 0, -3.96934, 0, -0.494336, 1
 [node name="Spire3" parent="Buildings" instance=ExtResource( 13 )]
 transform = Transform( -0.429291, 0, -3.9769, 0, 4, 0, 3.9769, 0, -0.429291, 80.7663, 0, 239.965 )
 
+[node name="Spire4" parent="Buildings" instance=ExtResource( 13 )]
+transform = Transform( -3.14899, 0, -2.46655, 0, 4, 0, 2.46655, 0, -3.14899, 96.2876, 0, 95.627 )
+
 [node name="BigOrb" parent="Buildings" instance=ExtResource( 16 )]
 transform = Transform( 5.56281, 0, 8.30994, 0, 10, 0, -8.30994, 0, 5.56281, -203.762, 0, -436.435 )
 
@@ -249,6 +253,9 @@ transform = Transform( -1.66199, 0, 1.11256, 0, 2, 0, -1.11256, 0, -1.66199, -24
 
 [node name="DiscPlant" parent="Buildings" instance=ExtResource( 18 )]
 transform = Transform( -1.31134e-07, 0, 3, 0, 3, 0, -3, 0, -1.31134e-07, 107, 0, 358 )
+
+[node name="DiscPlant6" parent="Buildings" instance=ExtResource( 18 )]
+transform = Transform( 2.63887, 0, -1.42701, 0, 3, 0, 1.42701, 0, 2.63887, 287.211, 0, 107.631 )
 
 [node name="DiscPlant4" parent="Buildings" instance=ExtResource( 18 )]
 transform = Transform( 3, 0, -1.06581e-14, 0, 3, 0, 1.06581e-14, 0, 3, 175, 0, 470 )
@@ -295,8 +302,47 @@ transform = Transform( 3.45118, 0, 2.02221, 0, 4, 0, -2.02221, 0, 3.45118, 180.3
 [node name="Clover8" parent="Buildings" instance=ExtResource( 4 )]
 transform = Transform( -2, 0, -3.01992e-07, 0, 2, 0, 3.01992e-07, 0, -2, -0.499996, 0, -67.7001 )
 
+[node name="Clover9" parent="Buildings" instance=ExtResource( 4 )]
+transform = Transform( -2.82843, 0, -2.82843, 0, 4, 0, 2.82843, 0, -2.82843, -149.814, 0, -32.4803 )
+
+[node name="Clover16" parent="Buildings" instance=ExtResource( 4 )]
+transform = Transform( -2.82843, 0, -2.82843, 0, 4, 0, 2.82843, 0, -2.82843, -177.179, 0, -169.447 )
+
+[node name="Clover10" parent="Buildings" instance=ExtResource( 4 )]
+transform = Transform( -2.82843, 0, -2.82843, 0, 4, 0, 2.82843, 0, -2.82843, -37.5512, 0, 16.959 )
+
+[node name="Clover11" parent="Buildings" instance=ExtResource( 4 )]
+transform = Transform( -2.82843, 0, -2.82843, 0, 4, 0, 2.82843, 0, -2.82843, -55.8652, 0, 10.6658 )
+
+[node name="Clover12" parent="Buildings" instance=ExtResource( 4 )]
+transform = Transform( -2.82843, 0, -2.82843, 0, 4, 0, 2.82843, 0, -2.82843, -199.54, 0, 49.4524 )
+
+[node name="Clover13" parent="Buildings" instance=ExtResource( 4 )]
+transform = Transform( -2.82843, 0, -2.82843, 0, 4, 0, 2.82843, 0, -2.82843, -187.095, 0, 37.0073 )
+
+[node name="Clover14" parent="Buildings" instance=ExtResource( 4 )]
+transform = Transform( -2.82843, 0, -2.82843, 0, 4, 0, 2.82843, 0, -2.82843, -199.115, 0, 24.9865 )
+
+[node name="Clover15" parent="Buildings" instance=ExtResource( 4 )]
+transform = Transform( -4.24264, 0, -4.24264, 0, 6, 0, 4.24264, 0, -4.24264, -50.0573, 0, 80.1408 )
+
 [node name="CloverBlock11" parent="Buildings" instance=ExtResource( 17 )]
 transform = Transform( -1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, -20.5, 0, -93.7 )
+
+[node name="Tower01" parent="Buildings" instance=ExtResource( 10 )]
+transform = Transform( 8, 0, 0, 0, 8, 0, 0, 0, 8, -49.663, 0, -11.156 )
+
+[node name="Tower02" parent="Buildings" instance=ExtResource( 10 )]
+transform = Transform( -2.62268e-07, 0, -6, 0, 6, 0, 6, 0, -2.62268e-07, -144.463, 0, 14.744 )
+
+[node name="Tower03" parent="Buildings" instance=ExtResource( 10 )]
+transform = Transform( -2.62268e-07, 0, -6, 0, 6, 0, 6, 0, -2.62268e-07, -76.163, 0, 30.044 )
+
+[node name="Tower04" parent="Buildings" instance=ExtResource( 10 )]
+transform = Transform( -1.74846e-07, 0, -4, 0, 4, 0, 4, 0, -1.74846e-07, -101.019, 0, 74.5667 )
+
+[node name="Tower05" parent="Buildings" instance=ExtResource( 10 )]
+transform = Transform( -4, 0, 6.03983e-07, 0, 4, 0, -6.03983e-07, 0, -4, -135.982, 0, 68.0112 )
 
 [node name="Islands01" parent="." instance=ExtResource( 1 )]
 

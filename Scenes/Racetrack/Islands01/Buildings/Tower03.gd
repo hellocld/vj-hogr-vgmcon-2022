@@ -2,7 +2,7 @@ extends Spatial
 
 
 func _ready() -> void:
-	$OmniLight.omni_range *= scale.x
+	$OmniLight.omni_range = scale.x
 
 
 func _input(event: InputEvent) -> void:
