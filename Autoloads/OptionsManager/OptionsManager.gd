@@ -4,9 +4,9 @@ var _mod_on = false
 
 
 func _ready() -> void:
-	#OS.window_fullscreen = true
-	#Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
-	#Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	OS.window_fullscreen = true
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	pass
 
 func _input(event: InputEvent) -> void:
